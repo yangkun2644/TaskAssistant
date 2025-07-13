@@ -1,4 +1,4 @@
-# TaskAssistant
+ï»¿# TaskAssistant
 
 [![.NET 8](https://img.shields.io/badge/.NET-8.0-blue)](https://dotnet.microsoft.com/download/dotnet/8.0)
 [![WPF](https://img.shields.io/badge/UI-WPF-purple)](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/)
@@ -6,121 +6,121 @@
 [![SQLite](https://img.shields.io/badge/Database-SQLite-lightblue)](https://www.sqlite.org/)
 [![MVVM](https://img.shields.io/badge/Pattern-MVVM-green)](https://docs.microsoft.com/en-us/xaml/xaml-overview)
 
-TaskAssistant ¬O¤@?¥\¯à?¤jªº C# ?¥»ºŞ²z©M?¦æ¤u¨ã¡A°ò¤_ WPF ©M .NET 8 ÌÛ«Ø¡C¥¦?¥Î?´£¨Ñ¤F¤@?ª½?ªº¬É­±??«Ø¡BºŞ²z©M?¦æ C# ?¥»¡A¦P?¤ä«ù¥ô??«×©M¨t??±±¥\¯à¡C
+TaskAssistant æ˜¯ä¸€ä¸ªåŠŸèƒ½å¼ºå¤§çš„ C# è„šæœ¬ç®¡ç†å’Œæ‰§è¡Œå·¥å…·ï¼ŒåŸºäº WPF å’Œ .NET 8 æ„å»ºã€‚å®ƒä¸ºç”¨æˆ·æä¾›äº†ä¸€ä¸ªç›´è§‚çš„ç•Œé¢æ¥åˆ›å»ºã€ç®¡ç†å’Œæ‰§è¡Œ C# è„šæœ¬ï¼ŒåŒæ—¶æ”¯æŒä»»åŠ¡è°ƒåº¦å’Œç³»ç»Ÿç›‘æ§åŠŸèƒ½ã€‚
 
-## ? ¥D­n¯S©Ê
+## âœ¨ ä¸»è¦ç‰¹æ€§
 
-### ?? ?¥»ºŞ²z
-- **¥i?¤Æ?¥»??¾¹**¡G¶°¦¨ AvalonEdit ¥N???¾¹¡A¤ä«ù?ªk°ª«G¡B¥N?§é?©M´¼¯à?¥ş
-- **???¥»?¦æ**¡G¤ä«ù C# ?¥»ªº§Y??¦æ¡A?¸m¨ú®øÉó¨î
-- **?¥»¼ÒªO¨t?**¡G´£¨Ñ¦hÏú??¼ÒªO¡A§Ö³t?©l?¥»??
-- **¤À?©M??ºŞ²z**¡G?¬¡ªº?¥»¤À?©M??¨t?
-- **¥ş¤å·j¯Á**¡G¤ä«ù«ö¦W?¡B´y­z¡B§@ªÌ?¦æ§Ö³t·j¯Á
-- **ª©¥»ºŞ²z**¡G?¥»ª©¥»¸ò?©M?¦æ??
+### ğŸš€ è„šæœ¬ç®¡ç†
+- **å¯è§†åŒ–è„šæœ¬ç¼–è¾‘å™¨**ï¼šé›†æˆ AvalonEdit ä»£ç ç¼–è¾‘å™¨ï¼Œæ”¯æŒè¯­æ³•é«˜äº®ã€ä»£ç æŠ˜å å’Œæ™ºèƒ½è¡¥å…¨
+- **å®æ—¶è„šæœ¬æ‰§è¡Œ**ï¼šæ”¯æŒ C# è„šæœ¬çš„å³æ—¶æ‰§è¡Œï¼Œå†…ç½®å–æ¶ˆæœºåˆ¶
+- **è„šæœ¬æ¨¡æ¿ç³»ç»Ÿ**ï¼šæä¾›å¤šç§é¢„è®¾æ¨¡æ¿ï¼Œå¿«é€Ÿå¼€å§‹è„šæœ¬å¼€å‘
+- **åˆ†ç±»å’Œæ ‡ç­¾ç®¡ç†**ï¼šçµæ´»çš„è„šæœ¬åˆ†ç±»å’Œæ ‡ç­¾ç³»ç»Ÿ
+- **å…¨æ–‡æœç´¢**ï¼šæ”¯æŒæŒ‰åç§°ã€æè¿°ã€ä½œè€…è¿›è¡Œå¿«é€Ÿæœç´¢
+- **ç‰ˆæœ¬ç®¡ç†**ï¼šè„šæœ¬ç‰ˆæœ¬è·Ÿè¸ªå’Œæ‰§è¡Œç»Ÿè®¡
 
-### ?? ¥ô??«×
-- **©w?¥ô?**¡G¤ä«ù°ò¤_??ªº¥ô??«×
-- **¥ô??±±**¡G???±±¥ô??¦æ??©M?ªG
-- **?¦æ?¥v**¡G§¹¾ãªº¥ô??¦æ?¥v??
-- **§å¶q¾Ş§@**¡G¤ä«ù§å¶q?¥Î/¸T¥Î¥ô?
+### ğŸ“Š ä»»åŠ¡è°ƒåº¦
+- **å®šæ—¶ä»»åŠ¡**ï¼šæ”¯æŒåŸºäºæ—¶é—´çš„ä»»åŠ¡è°ƒåº¦
+- **ä»»åŠ¡ç›‘æ§**ï¼šå®æ—¶ç›‘æ§ä»»åŠ¡æ‰§è¡ŒçŠ¶æ€å’Œç»“æœ
+- **æ‰§è¡Œå†å²**ï¼šå®Œæ•´çš„ä»»åŠ¡æ‰§è¡Œå†å²è®°å½•
+- **æ‰¹é‡æ“ä½œ**ï¼šæ”¯æŒæ‰¹é‡å¯ç”¨/ç¦ç”¨ä»»åŠ¡
 
-### ?? ¥Î?¬É­±
-- **?¥N¤Æ??**¡Gªö¥Î Material Design ?®æ
-- **??¦¡¥¬§½**¡G¤ä«ùµ¡¤f¤j¤p?¾ã©M¦h?¥Ü¾¹
-- **¥D?¨t?**¡G¥i©w¨îªº¬É­±¥D?
-- **¦h?¨¥¤ä«ù**¡G§¹¾ãªº¤¤¤å¬É­±
+### ğŸ¨ ç”¨æˆ·ç•Œé¢
+- **ç°ä»£åŒ–è®¾è®¡**ï¼šé‡‡ç”¨ Material Design é£æ ¼
+- **å“åº”å¼å¸ƒå±€**ï¼šæ”¯æŒçª—å£å¤§å°è°ƒæ•´å’Œå¤šæ˜¾ç¤ºå™¨
+- **ä¸»é¢˜ç³»ç»Ÿ**ï¼šå¯å®šåˆ¶çš„ç•Œé¢ä¸»é¢˜
+- **å¤šè¯­è¨€æ”¯æŒ**ï¼šå®Œæ•´çš„ä¸­æ–‡ç•Œé¢
 
-### ?? §Ş?¯S©Ê
-- **©Ê¯àÉ¬¤Æ**¡G?¶q?¬d?É¬¤Æ¡AÁ×§K¤j¤å¥»¦r¬q¼v?¦Cªí¥[?©Ê¯à
-- **¨Ì?ª`¤J**¡G°ò¤_ Microsoft.Extensions.DependencyInjection
-- **?Õu«ù¤[¤Æ**¡GEntity Framework Core + SQLite
-- **MVVM ¬[ÌÛ**¡G¨Ï¥Î CommunityToolkit.Mvvm ??§¹¾ãªº MVVM ¼Ò¦¡
+### ğŸ”§ æŠ€æœ¯ç‰¹æ€§
+- **æ€§èƒ½ä¼˜åŒ–**ï¼šè½»é‡çº§æŸ¥è¯¢ä¼˜åŒ–ï¼Œé¿å…å¤§æ–‡æœ¬å­—æ®µå½±å“åˆ—è¡¨åŠ è½½æ€§èƒ½
+- **ä¾èµ–æ³¨å…¥**ï¼šåŸºäº Microsoft.Extensions.DependencyInjection
+- **æ•°æ®æŒä¹…åŒ–**ï¼šEntity Framework Core + SQLite
+- **MVVM æ¶æ„**ï¼šä½¿ç”¨ CommunityToolkit.Mvvm å®ç°å®Œæ•´çš„ MVVM æ¨¡å¼
 
-## ??? §Ş??
+## ğŸ› ï¸ æŠ€æœ¯æ ˆ
 
-### ®Ö¤ß®Ø¬[
-- **.NET 8.0**¡G³Ì·sªº .NET ®Ø¬[¡A´£¨Ñ¥X¦âªº©Ê¯à©M¥\¯à
-- **WPF (Windows Presentation Foundation)**¡G?¥Nªº Windows ®à­±?¥Îµ{§Ç®Ø¬[
-- **C# 12.0**¡G³Ì·sªº C# ?¨¥¯S©Ê
+### æ ¸å¿ƒæ¡†æ¶
+- **.NET 8.0**ï¼šæœ€æ–°çš„ .NET æ¡†æ¶ï¼Œæä¾›å‡ºè‰²çš„æ€§èƒ½å’ŒåŠŸèƒ½
+- **WPF (Windows Presentation Foundation)**ï¼šç°ä»£çš„ Windows æ¡Œé¢åº”ç”¨ç¨‹åºæ¡†æ¶
+- **C# 12.0**ï¼šæœ€æ–°çš„ C# è¯­è¨€ç‰¹æ€§
 
-### ¨Ì?¥]<!-- UI ©M MVVM -->
+### ä¾èµ–åŒ…<!-- UI å’Œ MVVM -->
 <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
 <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3351.48" />
 
-<!-- ?Õu?? -->
+<!-- æ•°æ®è®¿é—® -->
 <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
 <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
 <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7" />
 
-<!-- ?¥»?¦æ -->
+<!-- è„šæœ¬æ‰§è¡Œ -->
 <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.14.0" />
 
-<!-- ¨Ì?ª`¤J©M°t¸m -->
+<!-- ä¾èµ–æ³¨å…¥å’Œé…ç½® -->
 <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
 <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
 
-<!-- ¨ä¥L¤u¨ã -->
+<!-- å…¶ä»–å·¥å…· -->
 <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-## ?? §Ö³t?©l
+## ğŸš€ å¿«é€Ÿå¼€å§‹
 
-### ?¹Ò­n¨D
-- **¾Ş§@¨t?**¡GWindows 10 ª©¥» 1903 ©Î§ó°ªª©¥»
-- **?¦æ?**¡G.NET 8.0 Runtime ©Î .NET 8.0 SDK
-- **?¦s**¡G³Ì¤Ö 2GB RAM¡A±À¯ò 4GB ©Î§ó¦h
-- **¦s?ªÅ?**¡G¦Ü¤Ö 500MB ¥i¥ÎªÅ?
+### ç¯å¢ƒè¦æ±‚
+- **æ“ä½œç³»ç»Ÿ**ï¼šWindows 10 ç‰ˆæœ¬ 1903 æˆ–æ›´é«˜ç‰ˆæœ¬
+- **è¿è¡Œæ—¶**ï¼š.NET 8.0 Runtime æˆ– .NET 8.0 SDK
+- **å†…å­˜**ï¼šæœ€å°‘ 2GB RAMï¼Œæ¨è 4GB æˆ–æ›´å¤š
+- **å­˜å‚¨ç©ºé—´**ï¼šè‡³å°‘ 500MB å¯ç”¨ç©ºé—´
 
-### ¦w?¨B?
+### å®‰è£…æ­¥éª¤
 
-1. **§J¶©??**git clone https://github.com/your-username/TaskAssistant.git
+1. **å…‹éš†ä»“åº“**git clone https://github.com/your-username/TaskAssistant.git
 cd TaskAssistant
-2. **?­ì¨Ì?¥]**dotnet restore
-3. **ÌÛ«Ø?¥Ø**dotnet build --configuration Release
-4. **?¦æ?¥Îµ{§Ç**dotnet run --project TaskAssistant
-### ­º¦¸?¦æ
-- ?¥Îµ{§Ç?¦Û??«Ø SQLite ?Õu?
-- ?Õu?¤å¥ó¦ì¸m¡G`%LocalAppData%\TaskAssistant\Data\TaskAssistant.db`
-- ­º¦¸???ªì©l¤Æ¥Ü¨Ò?¥»¼ÒªO
+2. **è¿˜åŸä¾èµ–åŒ…**dotnet restore
+3. **æ„å»ºé¡¹ç›®**dotnet build --configuration Release
+4. **è¿è¡Œåº”ç”¨ç¨‹åº**dotnet run --project TaskAssistant
+### é¦–æ¬¡è¿è¡Œ
+- åº”ç”¨ç¨‹åºä¼šè‡ªåŠ¨åˆ›å»º SQLite æ•°æ®åº“
+- æ•°æ®åº“æ–‡ä»¶ä½ç½®ï¼š`%LocalAppData%\TaskAssistant\Data\TaskAssistant.db`
+- é¦–æ¬¡å¯åŠ¨ä¼šåˆå§‹åŒ–ç¤ºä¾‹è„šæœ¬æ¨¡æ¿
 
-## ?? ¨Ï¥Î«ü«n
+## ğŸ“– ä½¿ç”¨æŒ‡å—
 
-### ?¥»ºŞ²z
+### è„šæœ¬ç®¡ç†
 
-#### ?«Ø·s?¥»
-1. ??"?¥»ºŞ²z"?¤J?¥»ºŞ²z¬É­±
-2. ??"·s«Ø?¥»"«ö?
-3. ??¦XÓìªº?¥»¼ÒªO©Î?ªÅ¥Õ?©l
-4. ¶ñ??¥»°ò¥»«H®§¡]¦W?¡B´y­z¡B§@ªÌµ¥¡^
-5. ¦b¥N???¾¹¤¤?? C# ¥N?
-6. ??"«O¦s"«ö?«O¦s?¥»
+#### åˆ›å»ºæ–°è„šæœ¬
+1. ç‚¹å‡»"è„šæœ¬ç®¡ç†"è¿›å…¥è„šæœ¬ç®¡ç†ç•Œé¢
+2. ç‚¹å‡»"æ–°å»ºè„šæœ¬"æŒ‰é’®
+3. é€‰æ‹©åˆé€‚çš„è„šæœ¬æ¨¡æ¿æˆ–ä»ç©ºç™½å¼€å§‹
+4. å¡«å†™è„šæœ¬åŸºæœ¬ä¿¡æ¯ï¼ˆåç§°ã€æè¿°ã€ä½œè€…ç­‰ï¼‰
+5. åœ¨ä»£ç ç¼–è¾‘å™¨ä¸­ç¼–å†™ C# ä»£ç 
+6. ç‚¹å‡»"ä¿å­˜"æŒ‰é’®ä¿å­˜è„šæœ¬
 
-#### ?¦æ?¥»
-1. ¦b?¥»??¾¹¤¤??"?¦æ"«ö?
-2. ©Î¦b?¥»¦Cªí¤¤???¥»?
-3. ?¥»?¦b?¥ßªº?¦æ?¹Ò¤¤?¦æ
-4. ¤ä«ù???¥X©M??«H®§?¥Ü
-5. ¥i¥H??¨ú®ø¥¿¦b?¦æªº?¥»
+#### æ‰§è¡Œè„šæœ¬
+1. åœ¨è„šæœ¬ç¼–è¾‘å™¨ä¸­ç‚¹å‡»"æ‰§è¡Œ"æŒ‰é’®
+2. æˆ–åœ¨è„šæœ¬åˆ—è¡¨ä¸­åŒå‡»è„šæœ¬é¡¹
+3. è„šæœ¬å°†åœ¨ç‹¬ç«‹çš„æ‰§è¡Œç¯å¢ƒä¸­è¿è¡Œ
+4. æ”¯æŒå®æ—¶è¾“å‡ºå’Œé”™è¯¯ä¿¡æ¯æ˜¾ç¤º
+5. å¯ä»¥éšæ—¶å–æ¶ˆæ­£åœ¨è¿è¡Œçš„è„šæœ¬
 
-#### ?¥»¼ÒªO¥Ü¨Ò
+#### è„šæœ¬æ¨¡æ¿ç¤ºä¾‹
 
-**°ò?´`?¥Ü¨Ò**// °ò?´`??¥X¥Ü¨Ò¡]¤ä«ù¨ú®ø¡^
+**åŸºç¡€å¾ªç¯ç¤ºä¾‹**// åŸºç¡€å¾ªç¯è¾“å‡ºç¤ºä¾‹ï¼ˆæ”¯æŒå–æ¶ˆï¼‰
 for (int i = 1; i <= 100; i++)
 {
-    // ?¬d¬O§_»İ­n¨ú®ø - ?¬O¤ä«ù¨ú®ø¾Ş§@ªº??¥N?
+    // æ£€æŸ¥æ˜¯å¦éœ€è¦å–æ¶ˆ - è¿™æ˜¯æ”¯æŒå–æ¶ˆæ“ä½œçš„å…³é”®ä»£ç 
     CancellationToken.ThrowIfCancellationRequested();
     
-    Console.WriteLine($"¥¿¦b?²z²Ä {i} ?...");
-    await Task.Delay(50, CancellationToken); // ©µ?50²@¬í¡A¤ä«ù¨ú®ø
+    Console.WriteLine($"æ­£åœ¨å¤„ç†ç¬¬ {i} é¡¹...");
+    await Task.Delay(50, CancellationToken); // å»¶æ—¶50æ¯«ç§’ï¼Œæ”¯æŒå–æ¶ˆ
     
-    // ¨C?²z10??¥Ü¤@¦¸?«×
+    // æ¯å¤„ç†10é¡¹æ˜¾ç¤ºä¸€æ¬¡è¿›åº¦
     if (i % 10 == 0)
     {
-        Console.WriteLine($"¤w§¹¦¨ {i}%");
+        Console.WriteLine($"å·²å®Œæˆ {i}%");
     }
 }
-Console.WriteLine("©Ò¦³¥ô??¦æ§¹¦¨¡I");
-**?Õu?²z¥Ü¨Ò**
-// ?Õu?²z¥Ü¨Ò¡]¤ä«ù¨ú®ø¡^
+Console.WriteLine("æ‰€æœ‰ä»»åŠ¡æ‰§è¡Œå®Œæˆï¼");
+**æ•°æ®å¤„ç†ç¤ºä¾‹**
+// æ•°æ®å¤„ç†ç¤ºä¾‹ï¼ˆæ”¯æŒå–æ¶ˆï¼‰
 var numbers = new List<int>();
 for (int i = 1; i <= 100; i++)
 {
@@ -128,131 +128,120 @@ for (int i = 1; i <= 100; i++)
         CancellationToken.ThrowIfCancellationRequested();
     
     numbers.Add(i);
-    Console.WriteLine($"²K¥[?¦r: {i}");
+    Console.WriteLine($"æ·»åŠ æ•°å­—: {i}");
 }
 
-// ¨Ï¥Î LINQ ?¦æ?Õu¤ÀªR
+// ä½¿ç”¨ LINQ è¿›è¡Œæ•°æ®åˆ†æ
 var evenNumbers = numbers.Where(n => n % 2 == 0).ToList();
 var oddNumbers = numbers.Where(n => n % 2 != 0).ToList();
 
-Console.WriteLine($"°¸???: {evenNumbers.Count}");
-Console.WriteLine($"©_???: {oddNumbers.Count}");
-Console.WriteLine($"°¸?©M: {evenNumbers.Sum()}");
-Console.WriteLine($"©_?©M: {oddNumbers.Sum()}");
+Console.WriteLine($"å¶æ•°ä¸ªæ•°: {evenNumbers.Count}");
+Console.WriteLine($"å¥‡æ•°ä¸ªæ•°: {oddNumbers.Count}");
+Console.WriteLine($"å¶æ•°å’Œ: {evenNumbers.Sum()}");
+Console.WriteLine($"å¥‡æ•°å’Œ: {oddNumbers.Sum()}");
 
-return $"?²z§¹¦¨¡A??: {numbers.Count}";
-### ¥ô??«×
+return $"å¤„ç†å®Œæˆï¼Œæ€»æ•°: {numbers.Count}";
+### ä»»åŠ¡è°ƒåº¦
 
-#### ?«Ø©w?¥ô?
-1. ?¤J"¥ô?ºŞ²z"¬É­±
-2. ??"·s«Ø¥ô?"
-3. ??­n??ªº?¥»
-4. ?¸m?¦æ??©M­«Î`??
-5. °t¸m¥ô???
-6. ?¥Î¥ô??©l?«×
+#### åˆ›å»ºå®šæ—¶ä»»åŠ¡
+1. è¿›å…¥"ä»»åŠ¡ç®¡ç†"ç•Œé¢
+2. ç‚¹å‡»"æ–°å»ºä»»åŠ¡"
+3. é€‰æ‹©è¦å…³è”çš„è„šæœ¬
+4. è®¾ç½®æ‰§è¡Œæ—¶é—´å’Œé‡å¤è§„åˆ™
+5. é…ç½®ä»»åŠ¡å‚æ•°
+6. å¯ç”¨ä»»åŠ¡å¼€å§‹è°ƒåº¦
 
-#### ?±±¥ô??¦æ
-- ¥ô?????§ó·s
-- ¬d¬İ?¦æ?¥v©M?ªG
-- ¤ä«ù¤â?àD?¥ô??¦æ
-- §å¶qºŞ²z¦h?¥ô?
+#### ç›‘æ§ä»»åŠ¡æ‰§è¡Œ
+- ä»»åŠ¡çŠ¶æ€å®æ—¶æ›´æ–°
+- æŸ¥çœ‹æ‰§è¡Œå†å²å’Œç»“æœ
+- æ”¯æŒæ‰‹åŠ¨è§¦å‘ä»»åŠ¡æ‰§è¡Œ
+- æ‰¹é‡ç®¡ç†å¤šä¸ªä»»åŠ¡
 
-### ¨t??±±
+### ç³»ç»Ÿç›‘æ§
 
-#### ¨t???
-- ?¥»??©M?¦æ¦¸???
-- ¥ô??¦æ??¤À¥¬
-- ¨t??·½¨Ï¥Î±¡?
-- ?Õu?¤j¤p©M©Ê¯à«ü?
+#### ç³»ç»Ÿç»Ÿè®¡
+- è„šæœ¬æ€»æ•°å’Œæ‰§è¡Œæ¬¡æ•°ç»Ÿè®¡
+- ä»»åŠ¡æ‰§è¡ŒçŠ¶æ€åˆ†å¸ƒ
+- ç³»ç»Ÿèµ„æºä½¿ç”¨æƒ…å†µ
+- æ•°æ®åº“å¤§å°å’Œæ€§èƒ½æŒ‡æ ‡
 
-## ??? ?¥Ø?ÌÛ
+## ğŸ—ï¸ é¡¹ç›®ç»“æ„
 TaskAssistant/
-¢u¢w¢w ?? Assets/                     # ?·½¤å¥ó
-¢x   ¢|¢w¢w ?? Fonts/                  # ¦rÊ^¤å¥ó
-¢u¢w¢w ?? Common/                     # ³q¥Î?¥ó
-¢x   ¢|¢w¢w ?? ResourceManager.cs      # ?·½ºŞ²z¾¹
-¢u¢w¢w ?? Data/                       # ?Õu???
-¢x   ¢u¢w¢w ?? Repositories/           # ??¼Ò¦¡??
-¢x   ¢x   ¢u¢w¢w ?? IRepository.cs      # ??±µ¤f
-¢x   ¢x   ¢u¢w¢w ?? Repository.cs       # °ò?????
-¢x   ¢x   ¢u¢w¢w ?? IScriptRepository.cs # ?¥»??±µ¤f
-¢x   ¢x   ¢u¢w¢w ?? ScriptRepository.cs  # ?¥»????
-¢x   ¢x   ¢u¢w¢w ?? ITaskRepository.cs   # ¥ô???±µ¤f
-¢x   ¢x   ¢|¢w¢w ?? TaskRepository.cs    # ¥ô?????
-¢x   ¢u¢w¢w ?? Services/               # ?ÕuªA??
-¢x   ¢x   ¢u¢w¢w ?? IDataService.cs     # ?ÕuªA?±µ¤f
-¢x   ¢x   ¢|¢w¢w ?? DataService.cs      # ?ÕuªA???
-¢x   ¢u¢w¢w ?? Utilities/              # ?Õu¤u¨ã
-¢x   ¢x   ¢|¢w¢w ?? DatabaseManager.cs  # ?Õu?ºŞ²z¾¹
-¢x   ¢u¢w¢w ?? AppDbContext.cs         # EF Core ?Õu?¤W¤U¤å
-¢x   ¢|¢w¢w ?? DataServiceCollectionExtensions.cs # ¨Ì?ª`¤J?®i
-¢u¢w¢w ?? Models/                     # ?Õu¼Ò«¬
-¢x   ¢u¢w¢w ?? ScriptInfo.cs           # ?¥»«H®§¼Ò«¬
-¢x   ¢u¢w¢w ?? TaskInfo.cs             # ¥ô?«H®§¼Ò«¬
-¢x   ¢u¢w¢w ?? ScriptTemplate.cs       # ?¥»¼ÒªO¼Ò«¬
-¢x   ¢|¢w¢w ?? SystemStatistics.cs     # ¨t???¼Ò«¬
-¢u¢w¢w ?? Services/                   # ?¥ÎªA?
-¢x   ¢u¢w¢w ?? INavigationService.cs   # ?¯èªA?±µ¤f
-¢x   ¢u¢w¢w ?? NavigationService.cs    # ?¯èªA???
-¢x   ¢|¢w¢w ?? SystemStatisticsService.cs # ¨t???ªA?
-¢u¢w¢w ?? ViewModels/                 # ??¼Ò«¬
-¢x   ¢u¢w¢w ?? MainWindowViewModel.cs  # ¥Dµ¡¤f??¼Ò«¬
-¢x   ¢u¢w¢w ?? HomeViewModel.cs        # ­º???¼Ò«¬
-¢x   ¢u¢w¢w ?? ScriptManageViewModel.cs # ?¥»????¼Ò«¬
-¢x   ¢u¢w¢w ?? ScriptManageListViewModel.cs # ?¥»¦Cªí??¼Ò«¬
-¢x   ¢|¢w¢w ?? TasksManageViewModel.cs # ¥ô?ºŞ²z??¼Ò«¬
-¢u¢w¢w ?? View/                       # ??
-¢x   ¢u¢w¢w ?? MainWindow.xaml/cs      # ¥Dµ¡¤f
-¢x   ¢u¢w¢w ?? Home.xaml/cs            # ­º?
-¢x   ¢u¢w¢w ?? ScriptManage.xaml/cs    # ?¥»ºŞ²z¦Cªí
-¢x   ¢u¢w¢w ?? ScriptManageView.xaml/cs # ?¥»??¾¹
-¢x   ¢u¢w¢w ?? TasksManage.xaml/cs     # ¥ô?ºŞ²z
-¢x   ¢u¢w¢w ?? ScriptRunDialog.xaml/cs # ?¥»?¦æ??®Ø
-¢x   ¢u¢w¢w ?? FullScreenCodeEditorWindow.xaml/cs # ¥ş«Ì¥N???¾¹
-¢x   ¢|¢w¢w ?? ThemedDialog.xaml/cs    # ¥D?¤Æ??®Ø
-¢u¢w¢w ?? App.xaml/cs                 # ?¥Îµ{§Ç¤J¤f
-¢|¢w¢w ?? TaskAssistant.csproj        # ?¥Ø¤å¥ó
-## ?? ®Ö¤ß¥\¯à?¸Ñ
+â”œâ”€â”€ ğŸ“ Assets/                     # èµ„æºæ–‡ä»¶
+â”‚   â””â”€â”€ ğŸ“ Fonts/                  # å­—ä½“æ–‡ä»¶
+â”œâ”€â”€ ğŸ“ Common/                     # é€šç”¨ç»„ä»¶
+â”‚   â””â”€â”€ ğŸ“„ ResourceManager.cs      # èµ„æºç®¡ç†å™¨
+â”œâ”€â”€ ğŸ“ Data/                       # æ•°æ®è®¿é—®å±‚
+â”‚   â”œâ”€â”€ ğŸ“ Repositories/           # ä»“å‚¨æ¨¡å¼å®ç°
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ IRepository.cs      # ä»“å‚¨æ¥å£
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ Repository.cs       # åŸºç¡€ä»“å‚¨å®ç°
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ IScriptRepository.cs # è„šæœ¬ä»“å‚¨æ¥å£
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ ScriptRepository.cs  # è„šæœ¬ä»“å‚¨å®ç°
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ ITaskRepository.cs   # ä»»åŠ¡ä»“å‚¨æ¥å£
+â”‚   â”‚   â””â”€â”€ ğŸ“„ TaskRepository.cs    # ä»»åŠ¡ä»“å‚¨å®ç°
+â”‚   â”œâ”€â”€ ğŸ“ Services/               # æ•°æ®æœåŠ¡å±‚
+â”‚   â”‚   â”œâ”€â”€ ğŸ“„ IDataService.cs     # æ•°æ®æœåŠ¡æ¥å£
+â”‚   â”‚   â””â”€â”€ ğŸ“„ DataService.cs      # æ•°æ®æœåŠ¡å®ç°
+â”‚   â”œâ”€â”€ ğŸ“ Utilities/              # æ•°æ®å·¥å…·
+â”‚   â”‚   â””â”€â”€ ğŸ“„ DatabaseManager.cs  # æ•°æ®åº“ç®¡ç†å™¨
+â”‚   â”œâ”€â”€ ğŸ“„ AppDbContext.cs         # EF Core æ•°æ®åº“ä¸Šä¸‹æ–‡
+â”‚   â””â”€â”€ ğŸ“„ DataServiceCollectionExtensions.cs # ä¾èµ–æ³¨å…¥æ‰©å±•
+â”œâ”€â”€ ğŸ“ Models/                     # æ•°æ®æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptInfo.cs           # è„šæœ¬ä¿¡æ¯æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ TaskInfo.cs             # ä»»åŠ¡ä¿¡æ¯æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptTemplate.cs       # è„šæœ¬æ¨¡æ¿æ¨¡å‹
+â”‚   â””â”€â”€ ğŸ“„ SystemStatistics.cs     # ç³»ç»Ÿç»Ÿè®¡æ¨¡å‹
+â”œâ”€â”€ ğŸ“ Services/                   # åº”ç”¨æœåŠ¡
+â”‚   â”œâ”€â”€ ğŸ“„ INavigationService.cs   # å¯¼èˆªæœåŠ¡æ¥å£
+â”‚   â”œâ”€â”€ ğŸ“„ NavigationService.cs    # å¯¼èˆªæœåŠ¡å®ç°
+â”‚   â””â”€â”€ ğŸ“„ SystemStatisticsService.cs # ç³»ç»Ÿç»Ÿè®¡æœåŠ¡
+â”œâ”€â”€ ğŸ“ ViewModels/                 # è§†å›¾æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ MainWindowViewModel.cs  # ä¸»çª—å£è§†å›¾æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ HomeViewModel.cs        # é¦–é¡µè§†å›¾æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptManageViewModel.cs # è„šæœ¬ç¼–è¾‘è§†å›¾æ¨¡å‹
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptManageListViewModel.cs # è„šæœ¬åˆ—è¡¨è§†å›¾æ¨¡å‹
+â”‚   â””â”€â”€ ğŸ“„ TasksManageViewModel.cs # ä»»åŠ¡ç®¡ç†è§†å›¾æ¨¡å‹
+â”œâ”€â”€ ğŸ“ View/                       # è§†å›¾
+â”‚   â”œâ”€â”€ ğŸ“„ MainWindow.xaml/cs      # ä¸»çª—å£
+â”‚   â”œâ”€â”€ ğŸ“„ Home.xaml/cs            # é¦–é¡µ
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptManage.xaml/cs    # è„šæœ¬ç®¡ç†åˆ—è¡¨
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptManageView.xaml/cs # è„šæœ¬ç¼–è¾‘å™¨
+â”‚   â”œâ”€â”€ ğŸ“„ TasksManage.xaml/cs     # ä»»åŠ¡ç®¡ç†
+â”‚   â”œâ”€â”€ ğŸ“„ ScriptRunDialog.xaml/cs # è„šæœ¬æ‰§è¡Œå¯¹è¯æ¡†
+â”‚   â”œâ”€â”€ ğŸ“„ FullScreenCodeEditorWindow.xaml/cs # å…¨å±ä»£ç ç¼–è¾‘å™¨
+â”‚   â””â”€â”€ ğŸ“„ ThemedDialog.xaml/cs    # ä¸»é¢˜åŒ–å¯¹è¯æ¡†
+â”œâ”€â”€ ğŸ“„ App.xaml/cs                 # åº”ç”¨ç¨‹åºå…¥å£
+â””â”€â”€ ğŸ“„ TaskAssistant.csproj        # é¡¹ç›®æ–‡ä»¶
+## ğŸ¯ æ ¸å¿ƒåŠŸèƒ½è¯¦è§£
 
-### ?¥»?¦æ¤ŞÀº
-- °ò¤_ **Microsoft.CodeAnalysis.CSharp.Scripting**
-- ¤ä«ù§¹¾ãªº C# ?ªk©M .NET API
-- ?¸m¨ú®ø¥OµP¤ä«ù¡A¥i??¤¤??¦æ
-- ¦w¥şªº¨F½c?¦æ?¹Ò
+### è„šæœ¬æ‰§è¡Œå¼•æ“
+- åŸºäº **Microsoft.CodeAnalysis.CSharp.Scripting**
+- æ”¯æŒå®Œæ•´çš„ C# è¯­æ³•å’Œ .NET API
+- å†…ç½®å–æ¶ˆä»¤ç‰Œæ”¯æŒï¼Œå¯éšæ—¶ä¸­æ–­æ‰§è¡Œ
+- å®‰å…¨çš„æ²™ç®±æ‰§è¡Œç¯å¢ƒ
 
-### ?Õu??¬[ÌÛ
-- **??¼Ò¦¡ (Repository Pattern)**¡G«Ê??Õu????
-- **¤u§@?¤¸¼Ò¦¡ (Unit of Work)**¡GÚÌ«O¨Æ?¤@­P©Ê
-- **©µ?¥[?É¬¤Æ**¡GÁ×§K¥[?¤j¤å¥»¦r¬q¼v?©Ê¯à
-- **?±µ¦ÀºŞ²z**¡GÉ¬¤Æ?Õu??±µ?·½¨Ï¥Î
+### æ•°æ®è®¿é—®æ¶æ„
+- **ä»“å‚¨æ¨¡å¼ (Repository Pattern)**ï¼šå°è£…æ•°æ®è®¿é—®é€»è¾‘
+- **å·¥ä½œå•å…ƒæ¨¡å¼ (Unit of Work)**ï¼šç¡®ä¿äº‹åŠ¡ä¸€è‡´æ€§
+- **å»¶è¿ŸåŠ è½½ä¼˜åŒ–**ï¼šé¿å…åŠ è½½å¤§æ–‡æœ¬å­—æ®µå½±å“æ€§èƒ½
+- **è¿æ¥æ± ç®¡ç†**ï¼šä¼˜åŒ–æ•°æ®åº“è¿æ¥èµ„æºä½¿ç”¨
 
-### MVVM ¬[ÌÛ??
-- **CommunityToolkit.Mvvm**¡G?¥N¤Æªº MVVM ®Ø¬[
-- **RelayCommand**¡G°ª©Ê¯àªº©R¥O??
-- **ObservableProperty**¡G¦Û??©Ê?§ó³qª¾
-- **¨Ì?ª`¤J**¡GªQ½¢¦Xªº?¥ó??
+### MVVM æ¶æ„å®ç°
+- **CommunityToolkit.Mvvm**ï¼šç°ä»£åŒ–çš„ MVVM æ¡†æ¶
+- **RelayCommand**ï¼šé«˜æ€§èƒ½çš„å‘½ä»¤å®ç°
+- **ObservableProperty**ï¼šè‡ªåŠ¨å±æ€§å˜æ›´é€šçŸ¥
+- **ä¾èµ–æ³¨å…¥**ï¼šæ¾è€¦åˆçš„ç»„ä»¶è®¾è®¡
 
-## ?? ©Ê¯àÉ¬¤Æ
+## ğŸ“Š æ€§èƒ½ä¼˜åŒ–
+### UI æ¸²æŸ“ä¼˜åŒ–
+- **è™šæ‹ŸåŒ–åˆ—è¡¨**ï¼šå¤§æ•°æ®é›†çš„é«˜æ€§èƒ½æ˜¾ç¤º
+- **å¼‚æ­¥åŠ è½½**ï¼šé¿å… UI çº¿ç¨‹é˜»å¡
+- **å¢é‡æ›´æ–°**ï¼šæœ€å°åŒ– UI é‡ç»˜
+- **å†…å­˜ç®¡ç†**ï¼šåŠæ—¶é‡Šæ”¾ä¸éœ€è¦çš„èµ„æº
 
-### ?Õu?¬d?É¬¤Æ// ?¶q?¬d? - ¤£¥]§t Code ¦r¬q
-var scripts = await _scriptRepository.GetScriptListAsync(
-    category: "¤u¨ã?¥»", 
-    isEnabled: true, 
-    pageIndex: 0, 
-    pageSize: 20
-);
+## ğŸ”§ é…ç½®å’Œéƒ¨ç½²
 
-// §¹¾ã¬d? - ?¦b»İ­n?¥[? Code ¦r¬q
-var fullScript = await _scriptRepository.GetByIdAsync(scriptId);
-### UI ´è¬VÉ¬¤Æ
-- **??¤Æ¦Cªí**¡G¤j?Õu¶°ªº°ª©Ê¯à?¥Ü
-- **Éİ¨B¥[?**¡GÁ×§K UI ?µ{ªı¶ë
-- **¼W¶q§ó·s**¡G³Ì¤p¤Æ UI ­«?
-- **?¦sºŞ²z**¡G¤Î??©ñ¤£»İ­nªº?·½
-
-## ?? °t¸m©M³¡¸p
-
-### ?¥Îµ{§Ç°t¸m{
+### åº”ç”¨ç¨‹åºé…ç½®{
   "Database": {
     "ConnectionString": "Data Source=%LocalAppData%\\TaskAssistant\\Data\\TaskAssistant.db",
     "CommandTimeout": 30,
@@ -271,61 +260,55 @@ var fullScript = await _scriptRepository.GetByIdAsync(scriptId);
     "AllowNetworkAccess": false
   }
 }
-### ³¡¸p??
+### éƒ¨ç½²é€‰é¡¹
 
-#### ?¥ß³¡¸pdotnet publish -c Release -r win-x64 --self-contained true
-#### ®Ø¬[¨Ì?³¡¸pdotnet publish -c Release -r win-x64 --self-contained false
-## ?? ??«ü«n
+#### ç‹¬ç«‹éƒ¨ç½²dotnet publish -c Release -r win-x64 --self-contained true
+#### æ¡†æ¶ä¾èµ–éƒ¨ç½²dotnet publish -c Release -r win-x64 --self-contained false
+## ğŸ¤ è´¡çŒ®æŒ‡å—
 
-§Ú??ªïªÀ???¡I?¿í´`¥H¤U¨B?¡G
+æˆ‘ä»¬æ¬¢è¿ç¤¾åŒºè´¡çŒ®ï¼è¯·éµå¾ªä»¥ä¸‹æ­¥éª¤ï¼š
 
-### ???¹Ò?¸m
-1. **¦w? Visual Studio 2022** ©Î **VS Code** + C# ?®i
-2. **¦w? .NET 8.0 SDK**
-3. **§J¶©??¦}?­ì¥]**
-4. **?¦æ?¤¸??ÚÌ«O?¹Ò¥¿±`**
+### å¼€å‘ç¯å¢ƒè®¾ç½®
+1. **å®‰è£… Visual Studio 2022** æˆ– **VS Code** + C# æ‰©å±•
+2. **å®‰è£… .NET 8.0 SDK**
+3. **å…‹éš†ä»“åº“å¹¶è¿˜åŸåŒ…**
+4. **è¿è¡Œå•å…ƒæµ‹è¯•ç¡®ä¿ç¯å¢ƒæ­£å¸¸**
 
-### ´£¥æ¬yµ{
-1. **Fork ?¥Ø**¨ì±zªº GitHub ??
-2. **?«Ø¥\¯à¤À¤ä**¡G`git checkout -b feature/amazing-feature`
-3. **´£¥æ§ó§ï**¡G`git commit -m 'Add some amazing feature'`
-4. **±À°e¤À¤ä**¡G`git push origin feature/amazing-feature`
-5. **?«Ø Pull Request**
+### æäº¤æµç¨‹
+1. **Fork é¡¹ç›®**åˆ°æ‚¨çš„ GitHub è´¦æˆ·
+2. **åˆ›å»ºåŠŸèƒ½åˆ†æ”¯**ï¼š`git checkout -b feature/amazing-feature`
+3. **æäº¤æ›´æ”¹**ï¼š`git commit -m 'Add some amazing feature'`
+4. **æ¨é€åˆ†æ”¯**ï¼š`git push origin feature/amazing-feature`
+5. **åˆ›å»º Pull Request**
 
-### ¥N??­S
-- ¿í´` C# ???©w©M©R¦W?­S
-- ²K¥[¥²­nªº XML ¤å?ª`?
-- ???¤¸??ÂĞ?·s¥\¯à
-- ÚÌ«O¥N?³q?©Ò¦³?¦³??
+### ä»£ç è§„èŒƒ
+- éµå¾ª C# ç¼–ç çº¦å®šå’Œå‘½åè§„èŒƒ
+- æ·»åŠ å¿…è¦çš„ XML æ–‡æ¡£æ³¨é‡Š
+- ç¼–å†™å•å…ƒæµ‹è¯•è¦†ç›–æ–°åŠŸèƒ½
+- ç¡®ä¿ä»£ç é€šè¿‡æ‰€æœ‰ç°æœ‰æµ‹è¯•
 
-## ?? §ó·s¤é§Ó
+## ğŸ“ æ›´æ–°æ—¥å¿—
 
 ### v1.0.0 (2024-01-XX)
-- ? ªì©lª©¥»?¥¬
-- ?? °ò??¥»ºŞ²z¥\¯à
-- ?? ¥ô??«×¨t?
-- ?? ?¥N¤Æ UI ??
-- ?? ©Ê¯àÉ¬¤Æ??
+- âœ¨ åˆå§‹ç‰ˆæœ¬å‘å¸ƒ
+- ğŸš€ åŸºç¡€è„šæœ¬ç®¡ç†åŠŸèƒ½
+- ğŸ“Š ä»»åŠ¡è°ƒåº¦ç³»ç»Ÿ
+- ğŸ¨ ç°ä»£åŒ– UI è®¾è®¡
+- ğŸ”§ æ€§èƒ½ä¼˜åŒ–å®ç°
 
-## ?? ?¥i?
+## ğŸ“„ è®¸å¯è¯
 
-¥»?¥Øªö¥Î MIT ?¥i?¡C??«H®§?¬d¬İ [LICENSE](LICENSE) ¤å¥ó¡C
+æœ¬é¡¹ç›®é‡‡ç”¨ MIT è®¸å¯è¯ã€‚è¯¦ç»†ä¿¡æ¯è¯·æŸ¥çœ‹ [LICENSE](LICENSE) æ–‡ä»¶ã€‚
 
-## ?? ¤ä«ù©M¤Ï?
+## ğŸ™ è‡´è°¢
 
-- **Issue ¸ò?**¡G[GitHub Issues](https://github.com/your-username/TaskAssistant/issues)
-- **¥\¯à«Ø?**¡G[GitHub Discussions](https://github.com/your-username/TaskAssistant/discussions)
-- **?¥ó?¨t**¡Gyour-email@example.com
+æ„Ÿè°¢ä»¥ä¸‹å¼€æºé¡¹ç›®å’Œè´¡çŒ®è€…ï¼š
 
-## ?? ­P?
-
-·P?¥H¤U?·½?¥Ø©M??ªÌ¡G
-
-- [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) - ?¤jªº¥N???¾¹?¥ó
-- [CommunityToolkit.Mvvm](https://github.com/CommunityToolkit/dotnet) - ?¥N¤Æªº MVVM ®Ø¬[
-- [Entity Framework Core](https://github.com/dotnet/efcore) - É¬¨qªº ORM ®Ø¬[
-- [Material Design](https://material.io/) - ???·P?·½
+- [AvalonEdit](https://github.com/icsharpcode/AvalonEdit) - å¼ºå¤§çš„ä»£ç ç¼–è¾‘å™¨ç»„ä»¶
+- [CommunityToolkit.Mvvm](https://github.com/CommunityToolkit/dotnet) - ç°ä»£åŒ–çš„ MVVM æ¡†æ¶
+- [Entity Framework Core](https://github.com/dotnet/efcore) - ä¼˜ç§€çš„ ORM æ¡†æ¶
+- [Material Design](https://material.io/) - è®¾è®¡çµæ„Ÿæ¥æº
 
 ---
 
-**TaskAssistant** - ? C# ?¥»ºŞ²z?±o??°ª®Ä¡I ??
+**TaskAssistant** - è®© C# è„šæœ¬ç®¡ç†å˜å¾—ç®€å•é«˜æ•ˆï¼ ğŸš€
