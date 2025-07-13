@@ -28,7 +28,6 @@ TaskAssistant 是一个功能强大的 C# 脚本管理和执行工具，基于 W
 - **现代化设计**：采用 Material Design 风格
 - **响应式布局**：支持窗口大小调整和多显示器
 - **主题系统**：可定制的界面主题
-- **多语言支持**：完整的中文界面
 
 ### 🔧 技术特性
 - **性能优化**：轻量级查询优化，避免大文本字段影响列表加载性能
@@ -233,17 +232,6 @@ TaskAssistant/
 - **依赖注入**：松耦合的组件设计
 
 ## 📊 性能优化
-
-### 数据库查询优化// 轻量级查询 - 不包含 Code 字段
-var scripts = await _scriptRepository.GetScriptListAsync(
-    category: "工具脚本", 
-    isEnabled: true, 
-    pageIndex: 0, 
-    pageSize: 20
-);
-
-// 完整查询 - 仅在需要时加载 Code 字段
-var fullScript = await _scriptRepository.GetByIdAsync(scriptId);
 ### UI 渲染优化
 - **虚拟化列表**：大数据集的高性能显示
 - **异步加载**：避免 UI 线程阻塞
@@ -311,11 +299,6 @@ var fullScript = await _scriptRepository.GetByIdAsync(scriptId);
 
 本项目采用 MIT 许可证。详细信息请查看 [LICENSE](LICENSE) 文件。
 
-## 💬 支持和反馈
-
-- **Issue 跟踪**：[GitHub Issues](https://github.com/your-username/TaskAssistant/issues)
-- **功能建议**：[GitHub Discussions](https://github.com/your-username/TaskAssistant/discussions)
-- **邮件联系**：your-email@example.com
 
 ## 🙏 致谢
 
