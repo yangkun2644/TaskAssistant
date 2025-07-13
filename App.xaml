@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="TaskAssistant.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--  添加 BoolToVisibilityConverter 资源  -->
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Application.Resources>
+</Application>  

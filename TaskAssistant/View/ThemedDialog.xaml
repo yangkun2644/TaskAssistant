@@ -1,0 +1,106 @@
+﻿<Window
+    x:Class="TaskAssistant.View.ThemedDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    SizeToContent="WidthAndHeight"
+    Topmost="True"
+    WindowStartupLocation="CenterOwner"
+    WindowStyle="None">
+    <Border
+        MinWidth="360"
+        MinHeight="140"
+        Padding="32"
+        BorderThickness="1"
+        CornerRadius="14">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="-0.2" Color="#D489FF" />
+                <GradientStop Offset="0.5" Color="#FF4751B7" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <StackPanel>
+            <!--  标题栏  -->
+            <StackPanel Margin="0,0,0,12" Orientation="Horizontal">
+                <!--  图标  -->
+                <TextBlock
+                    x:Name="IconBlock"
+                    Margin="0,0,12,0"
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    Foreground="White"
+                    Text="ℹ" />
+
+                <!--  标题  -->
+                <TextBlock
+                    x:Name="TitleBlock"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="提示" />
+            </StackPanel>
+
+            <!--  消息内容  -->
+            <TextBlock
+                x:Name="MessageBlock"
+                Margin="0,0,0,24"
+                FontSize="14"
+                Foreground="#e0e0e0"
+                LineHeight="20"
+                Text="内容"
+                TextWrapping="Wrap" />
+
+            <!--  按钮区域  -->
+            <StackPanel
+                x:Name="ButtonPanel"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <!--  取消按钮  -->
+                <Button
+                    x:Name="CancelButton"
+                    Margin="0,0,10,0"
+                    Click="CancelButton_Click"
+                    Style="{StaticResource sendButton}"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="取消" />
+                </Button>
+
+                <!--  否按钮  -->
+                <Button
+                    x:Name="NoButton"
+                    Margin="0,0,10,0"
+                    Click="NoButton_Click"
+                    Style="{StaticResource sendButton}"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="否" />
+                </Button>
+
+                <!--  确定/是按钮  -->
+                <Button
+                    x:Name="OkButton"
+                    Margin="0,0,0,0"
+                    Click="OkButton_Click"
+                    Style="{StaticResource sendButton}">
+                    <TextBlock
+                        x:Name="OkTextBlock"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="确认" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

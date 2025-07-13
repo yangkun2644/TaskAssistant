@@ -1,0 +1,315 @@
+﻿<UserControl
+    x:Class="TaskAssistant.View.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TaskAssistant.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+                Height="130"
+                Margin="20,20,20,20"
+                VerticalAlignment="Top"
+                Style="{StaticResource cardBorder}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#9D85FA" />
+                        <GradientStop Offset="1" Color="#C77AFF" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <!--  标题  -->
+                    <TextBlock
+                        Margin="15,10,0,0"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Style="{StaticResource textLabel}"
+                        Text="统计" />
+                    <Grid Margin="15,35,15,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--  脚本总数  -->
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xe86f;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding TotalScripts}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Opacity="0.8"
+                                    Style="{StaticResource textLabel}"
+                                    Text="脚本总数" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xe9b9;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding TotalTasks}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Opacity="0.7"
+                                    Style="{StaticResource textLabel}"
+                                    Text="任务总数" />
+                            </StackPanel>
+                        </StackPanel>
+                        <!--  今日执行  -->
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xf5d0;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding TodayExecutions}" />
+                                <TextBlock
+                                    FontSize="12"
+                                    Opacity="0.8"
+                                    Style="{StaticResource textLabel}"
+                                    Text="今日执行" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border
+                Grid.Column="1"
+                Height="130"
+                Margin="20,20,20,20"
+                VerticalAlignment="Top"
+                Style="{StaticResource cardBorder}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#9D85FA" />
+                        <GradientStop Offset="1" Color="#C77AFF" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <!--  标题  -->
+                    <TextBlock
+                        Margin="15,10,0,0"
+                        VerticalAlignment="Top"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Style="{StaticResource textLabel}"
+                        Text="系统资源" />
+                    <!--  第二行：系统资源数据  -->
+                    <Grid Margin="15,35,15,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  数据库大小  -->
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xf191;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="SemiBold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding DatabaseSizeText}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Opacity="0.7"
+                                    Style="{StaticResource textLabel}"
+                                    Text="数据库" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  内存使用  -->
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xe322;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="SemiBold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding MemoryUsageText}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Opacity="0.7"
+                                    Style="{StaticResource textLabel}"
+                                    Text="内存" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  CPU使用率  -->
+                        <StackPanel
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="30"
+                                Foreground="White"
+                                Text="&#xe322;" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="SemiBold"
+                                    Style="{StaticResource textLabel}"
+                                    Text="{Binding CpuUsageText}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Opacity="0.7"
+                                    Style="{StaticResource textLabel}"
+                                    Text="CPU" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        <!--  内嵌浏览器区域  -->
+        <Border
+            Height="450"
+            Margin="20,20,20,20"
+            VerticalAlignment="Top"
+            Style="{StaticResource cardBorder}">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#9D85FA" />
+                    <GradientStop Offset="1" Color="#C77AFF" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <!--  浏览器标题栏  -->
+                <Grid
+                    Height="35"
+                    Margin="15,10,15,0"
+                    VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  标题  -->
+                    <!--
+                    <TextBlock
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Style="{StaticResource textLabel}"
+                        Text="GitHub" />-->
+
+                    <!--  地址栏  -->
+                    <!--
+                    <Border
+                        Grid.Column="1"
+                        Height="50"
+                        VerticalAlignment="Center"
+                        CornerRadius="14">
+                        <TextBox
+                            x:Name="AddressBar"
+                            Margin="10,0"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="12"
+                            Foreground="White"
+                            Text="{Binding WebUrl, UpdateSourceTrigger=PropertyChanged}">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Return" Command="{Binding NavigateCommand}" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </Border>-->
+
+                    <!--  导航按钮  -->
+                    <!--<StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <Button
+                            Margin="0,0,5,0"
+                            Command="{Binding RefreshCommand}"
+                            Style="{StaticResource fillButton}"
+                            ToolTip="刷新">
+                            <TextBlock
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="&#xe5d5;" />
+                        </Button>
+                    -->
+                    <!--<Button
+                            Command="{Binding NavigateCommand}"
+                            Style="{StaticResource fillButton}"
+                            ToolTip="转到">
+                            <TextBlock
+                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="&#xe5cc;" />
+                        </Button>-->
+                    <!--
+                    </StackPanel>-->
+                </Grid>
+
+                <!--  WebView2 浏览器控件  -->
+                <Border
+                    Margin="15,15,15,15"
+                    Background="White"
+                    CornerRadius="10">
+                    <wv2:WebView2 x:Name="WebView" Source="{Binding WebUrl}" />
+                </Border>
+            </Grid>
+        </Border>
+    </StackPanel>
+</UserControl>

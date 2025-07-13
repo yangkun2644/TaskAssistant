@@ -1,0 +1,23 @@
+﻿步骤 1：下载 Material Icons 字体
+访问 Google Fonts - Material Icons   https://fonts.google.com/icons
+点击右上角 "Download" 按钮
+解压后获取 MaterialIcons-Regular.ttf 文件
+步骤 2：添加字体到项目
+在项目中创建 Assets/Fonts 文件夹
+将 MaterialIcons-Regular.ttf 复制到该文件夹
+右键点击文件 → 属性 → 设置：
+生成操作：Resource
+复制到输出目录：不复制
+步骤 3：在 XAML 中使用字体图标
+有两种方式可以引用图标：
+方式 1：直接使用 TextBlock（简单但需记 Unicode）
+xml
+<TextBlock
+    Text="&#xE88A;"  <!-- Home 图标的 Unicode -->
+    FontFamily="pack://application:,,,/Assets/Fonts/MaterialIcons-Regular.ttf#Material Icons"
+    FontSize="24"
+    Foreground="White"/>
+
+关键属性：
+Text：图标对应的 Unicode（格式为 &#xXXXX;）
+FontFamily：字体文件路径，格式为 pack://application:,,,/文件夹/文件名.ttf#字体名称
