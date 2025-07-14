@@ -255,8 +255,7 @@
                     <Button
                         Width="150"
                         Height="40"
-                        Margin="310,0,0,0"
-                        HorizontalAlignment="Right"
+                        Margin="20,0,0,0"
                         Command="{Binding OpenFullScreenEditorCommand}"
                         Style="{StaticResource sendButton}"
                         ToolTip="在全屏编辑器中编辑代码">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -40,6 +41,24 @@ namespace TaskAssistant.View
             
             // 注册 DataContext 变更事件，用于处理 ViewModel 更新
             DataContextChanged += OnDataContextChanged;
+            
+            // 注册卸载事件，清理资源
+            Unloaded += OnUnloaded;
+        }
+
+        /// <summary>
+        /// 处理用户控件卸载事件
+        /// 清理事件订阅，避免内存泄漏
+        /// </summary>
+        /// <param name="sender">事件发送者</param>
+        /// <param name="e">事件参数</param>
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            // 清理ViewModel事件订阅
+            if (ViewModel != null)
+            {
+                ViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+            }
         }
 
         #endregion
@@ -54,15 +73,27 @@ namespace TaskAssistant.View
         /// <param name="e">事件参数</param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            // 取消之前的订阅
+            if (e.OldValue is ScriptManageViewModel oldViewModel)
+            {
+                oldViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+            }
+
             // 延迟初始化，确保控件已经加载完成和 ViewModel 完全初始化
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 if (IsLoaded && CodeEditor != null && ViewModel != null)
                 {
+                    // 订阅ViewModel属性变更事件
+                    ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+                    
                     InitializeCodeEditor();
                     
-                    // 如果是新建模式且没有选中模板，设置默认模板
-                    if (ViewModel.SelectedTemplate == null && ViewModel.ScriptTemplates.Any())
+                    // 只有在新建模式下（Code为空且没有选中模板）才设置默认模板
+                    // 避免在编辑模式下覆盖从数据库加载的代码
+                    if (string.IsNullOrEmpty(ViewModel.Code) && 
+                        ViewModel.SelectedTemplate == null && 
+                        ViewModel.ScriptTemplates.Any())
                     {
                         ViewModel.SelectedTemplate = ViewModel.ScriptTemplates.FirstOrDefault();
                     }
@@ -78,9 +109,25 @@ namespace TaskAssistant.View
         /// <param name="e">事件参数</param>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            if (CodeEditor != null)
+            if (CodeEditor != null && ViewModel != null)
             {
+                // 订阅ViewModel属性变更事件
+                ViewModel.PropertyChanged += ViewModel_PropertyChanged;
                 InitializeCodeEditor();
+            }
+        }
+
+        /// <summary>
+        /// 处理ViewModel属性变更事件
+        /// </summary>
+        /// <param name="sender">事件发送者</param>
+        /// <param name="e">属性变更事件参数</param>
+        private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ScriptManageViewModel.Code))
+            {
+                // 当Code属性变更时，更新代码编辑器内容
+                UpdateCodeEditorFromViewModel();
             }
         }
 
@@ -95,36 +142,38 @@ namespace TaskAssistant.View
             // 解除之前的事件绑定，避免在设置内容时触发更改事件
             CodeEditor.TextChanged -= CodeEditor_TextChanged;
 
-            // 设置代码编辑器的初始内容
-            if (!string.IsNullOrWhiteSpace(ViewModel.Code))
+            try
             {
-                // 已有代码内容：可能是编辑模式或者模板已选择
-                CodeEditor.Text = ViewModel.Code;
+                // 优先使用ViewModel中的Code（可能来自数据库）
+                string codeToShow = ViewModel.Code;
+                
+                // 如果ViewModel中没有代码，且选择了模板，使用模板代码
+                if (string.IsNullOrWhiteSpace(codeToShow) && ViewModel.SelectedTemplate != null)
+                {
+                    codeToShow = ViewModel.SelectedTemplate.Code;
+                    // 同步更新ViewModel（但不通知PropertyChanged，避免循环）
+                    ViewModel.UpdateCode(codeToShow);
+                }
+                
+                // 设置代码编辑器内容
+                CodeEditor.Text = codeToShow ?? string.Empty;
+                
+                System.Diagnostics.Debug.WriteLine($"初始化代码编辑器: {CodeEditor.Text.Length} 字符");
             }
-            else if (ViewModel.SelectedTemplate != null)
+            finally
             {
-                // 新建模式且选择了模板：使用模板代码
-                CodeEditor.Text = ViewModel.SelectedTemplate.Code;
-                // 同步更新 ViewModel
-                ViewModel.Code = ViewModel.SelectedTemplate.Code;
-            }
-            else
-            {
-                // 新建模式且无模板：清空编辑器
-                CodeEditor.Text = string.Empty;
-            }
+                // 重新绑定代码编辑器的文本更改事件
+                CodeEditor.TextChanged += CodeEditor_TextChanged;
 
-            // 重新绑定代码编辑器的文本更改事件
-            CodeEditor.TextChanged += CodeEditor_TextChanged;
-
-            // 初始化代码编辑器边框状态
-            UpdateCodeEditorBorder();
-            
-            // 强制更新按钮状态
-            if (ViewModel != null)
-            {
-                ViewModel.ExecuteScriptCommand.NotifyCanExecuteChanged();
-                ViewModel.SaveScriptCommand.NotifyCanExecuteChanged();
+                // 初始化代码编辑器边框状态
+                UpdateCodeEditorBorder();
+                
+                // 强制更新按钮状态
+                if (ViewModel != null)
+                {
+                    ViewModel.ExecuteScriptCommand.NotifyCanExecuteChanged();
+                    ViewModel.SaveScriptCommand.NotifyCanExecuteChanged();
+                }
             }
         }
 
@@ -156,12 +205,22 @@ namespace TaskAssistant.View
             // 验证所有必需的控件都存在
             if (TemplateComboBox?.SelectedItem != null && CodeEditor != null && ViewModel != null)
             {
-                // 更新代码编辑器内容为新选中模板的代码
-                // ViewModel 中已经通过 OnSelectedTemplateChanged 更新了 Code 属性
-                CodeEditor.Text = ViewModel.Code;
-                
-                // 更新代码编辑器边框状态
-                UpdateCodeEditorBorder();
+                // 用户选择了模板时才更新
+                if (e.AddedItems.Count > 0 && ViewModel.SelectedTemplate != null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"🎯 用户选择了模板: {ViewModel.SelectedTemplate.Name}");
+                    
+                    // 更新代码编辑器内容为新选中模板的代码
+                    // ViewModel 中已经通过 OnSelectedTemplateChanged 更新了 Code 属性
+                    CodeEditor.Text = ViewModel.Code;
+                    
+                    // 更新代码编辑器边框状态
+                    UpdateCodeEditorBorder();
+                }
+                else if (e.RemovedItems.Count > 0 && ViewModel.SelectedTemplate == null)
+                {
+                    System.Diagnostics.Debug.WriteLine("🚫 模板选择已清除");
+                }
             }
         }
 
@@ -181,6 +240,43 @@ namespace TaskAssistant.View
                     : new SolidColorBrush(Color.FromRgb(224, 224, 224)); // #e0e0e0 默认颜色
                     
                 border.BorderThickness = new Thickness(isCodeEmpty ? 2 : 1);
+            }
+        }
+
+        /// <summary>
+        /// 从ViewModel更新代码编辑器内容
+        /// 用于处理异步加载脚本数据的情况
+        /// </summary>
+        private void UpdateCodeEditorFromViewModel()
+        {
+            if (CodeEditor == null || ViewModel == null) return;
+
+            // 暂时解除事件绑定，避免循环触发
+            CodeEditor.TextChanged -= CodeEditor_TextChanged;
+
+            try
+            {
+                System.Diagnostics.Debug.WriteLine($"更新代码编辑器 - ViewModel.Code长度: {ViewModel.Code?.Length ?? 0}");
+                System.Diagnostics.Debug.WriteLine($"更新代码编辑器 - 当前编辑器内容长度: {CodeEditor.Text?.Length ?? 0}");
+                
+                // 更新代码编辑器内容
+                if (CodeEditor.Text != ViewModel.Code)
+                {
+                    CodeEditor.Text = ViewModel.Code ?? string.Empty;
+                    System.Diagnostics.Debug.WriteLine($"✅ 代码编辑器内容已更新: {CodeEditor.Text.Length} 字符");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("📝 代码编辑器内容无需更新（内容相同）");
+                }
+            }
+            finally
+            {
+                // 重新绑定事件
+                CodeEditor.TextChanged += CodeEditor_TextChanged;
+                
+                // 更新边框状态
+                UpdateCodeEditorBorder();
             }
         }
 

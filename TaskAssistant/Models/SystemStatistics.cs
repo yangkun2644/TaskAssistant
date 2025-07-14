@@ -29,9 +29,24 @@ namespace TaskAssistant.Models
         public double DatabaseSizeMB { get; set; }
 
         /// <summary>
-        /// 内存使用量（MB）
+        /// 内存使用量（MB） - 专用工作集内存（任务管理器显示的"专用内存集"）
         /// </summary>
         public double MemoryUsageMB { get; set; }
+
+        /// <summary>
+        /// 私有内存使用量（MB） - 进程独占内存
+        /// </summary>
+        public double PrivateMemoryUsageMB { get; set; }
+
+        /// <summary>
+        /// 工作集内存使用量（MB） - 与任务管理器"内存"列一致
+        /// </summary>
+        public double WorkingSetMemoryUsageMB { get; set; }
+
+        /// <summary>
+        /// 专用工作集内存使用量（MB） - 与任务管理器"专用内存集"列完全一致
+        /// </summary>
+        public double PrivateWorkingSetMemoryUsageMB { get; set; }
 
         /// <summary>
         /// CPU 使用率（百分比）

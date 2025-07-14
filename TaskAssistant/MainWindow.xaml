@@ -122,6 +122,23 @@
                     </Grid>
                 </Button>
 
+                <!--  脚本引用设置按钮  -->
+                <Button
+                    Command="{Binding SwitchToPageCommand}"
+                    CommandParameter="ScriptReferenceSettings"
+                    Style="{Binding ScriptReferenceSettingsButtonStyle}">
+                    <Grid>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="Assets/Fonts/#Material Symbols Rounded"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="&#xe8b8;" />
+                            <TextBlock Style="{StaticResource buttonText}" Text="脚本引用设置" />
+                        </StackPanel>
+                    </Grid>
+                </Button>
+
             </StackPanel>
 
             <!--  Info Panel  -->

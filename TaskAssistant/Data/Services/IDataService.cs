@@ -92,6 +92,37 @@ namespace TaskAssistant.Data.Services
 
         #endregion
 
+        #region 设置管理
+
+        /// <summary>
+        /// 获取设置值
+        /// </summary>
+        /// <param name="key">设置键名</param>
+        /// <returns>设置值</returns>
+        Task<string?> GetSettingAsync(string key);
+
+        /// <summary>
+        /// 保存设置值
+        /// </summary>
+        /// <param name="key">设置键名</param>
+        /// <param name="value">设置值</param>
+        /// <param name="description">设置描述</param>
+        Task SaveSettingAsync(string key, string value, string? description = null);
+
+        /// <summary>
+        /// 删除设置
+        /// </summary>
+        /// <param name="key">设置键名</param>
+        Task DeleteSettingAsync(string key);
+
+        /// <summary>
+        /// 获取所有设置
+        /// </summary>
+        /// <returns>设置列表</returns>
+        Task<IEnumerable<AppSettings>> GetAllSettingsAsync();
+
+        #endregion
+
         #region 数据库管理
 
         /// <summary>

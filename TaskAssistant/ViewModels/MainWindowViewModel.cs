@@ -106,6 +106,12 @@ namespace TaskAssistant.ViewModels
         [ObservableProperty]
         private bool _isScriptManageActive = false;
 
+        /// <summary>
+        /// 脚本引用设置按钮是否为活动状态
+        /// </summary>
+        [ObservableProperty]
+        private bool _isScriptReferenceSettingsActive = false;
+
         // 导航按钮样式属性（替代转换器）
 
         /// <summary>
@@ -125,6 +131,12 @@ namespace TaskAssistant.ViewModels
         /// </summary>
         [ObservableProperty]
         private Style? _scriptManageButtonStyle;
+
+        /// <summary>
+        /// 脚本引用设置按钮样式
+        /// </summary>
+        [ObservableProperty]
+        private Style? _scriptReferenceSettingsButtonStyle;
 
         #endregion
 
@@ -162,7 +174,10 @@ namespace TaskAssistant.ViewModels
                 ["ScriptManageButton"] = () => CreatePage<ScriptManage>(new ScriptManageListViewModel(navigationService)),
                 
                 // 脚本编辑页面 - 创建和编辑脚本（新建模式）
-                ["ScriptManageViewButton"] = () => CreatePage<ScriptManageView>(new ScriptManageViewModel(navigationService))
+                ["ScriptManageViewButton"] = () => CreatePage<ScriptManageView>(new ScriptManageViewModel(navigationService)),
+
+                // 脚本引用设置页面 - 配置脚本引用
+                ["ScriptReferenceSettings"] = () => CreateScriptReferenceSettingsPage(navigationService)
             };
 
             // 初始化带参数页面工厂字典
@@ -209,6 +224,26 @@ namespace TaskAssistant.ViewModels
                 // 初始化为新建脚本模式
                 viewModel.InitializeForNewScript();
             }
+
+            return page;
+        }
+
+        /// <summary>
+        /// 创建脚本引用设置页面
+        /// </summary>
+        /// <param name="navigationService">导航服务</param>
+        /// <returns>脚本引用设置页面</returns>
+        private UserControl CreateScriptReferenceSettingsPage(NavigationService navigationService)
+        {
+            var settingsService = App.GetService<IAppSettingsService>();
+            if (settingsService == null)
+            {
+                throw new InvalidOperationException("无法获取应用程序设置服务");
+            }
+
+            var viewModel = new ScriptReferenceSettingsViewModel(settingsService, navigationService);
+            var page = new ScriptReferenceSettingsView();
+            page.DataContext = viewModel;
 
             return page;
         }
@@ -313,7 +348,7 @@ namespace TaskAssistant.ViewModels
                 return newPage;
             }
 
-            // 如果没有找到带参数的工厂，回退到普通工厂
+            // 如果没有找到带参数的工厂，回退到正常工厂
             return GetOrCreatePage(pageKey);
         }
 
@@ -329,6 +364,7 @@ namespace TaskAssistant.ViewModels
             HomeButtonStyle = IsHomeActive ? activeStyle : normalStyle;
             TasksManageButtonStyle = IsTasksManageActive ? activeStyle : normalStyle;
             ScriptManageButtonStyle = IsScriptManageActive ? activeStyle : normalStyle;
+            ScriptReferenceSettingsButtonStyle = IsScriptReferenceSettingsActive ? activeStyle : normalStyle;
         }
 
         /// <summary>
@@ -351,6 +387,14 @@ namespace TaskAssistant.ViewModels
         /// 处理脚本管理按钮活动状态变更
         /// </summary>
         partial void OnIsScriptManageActiveChanged(bool value)
+        {
+            UpdateNavigationButtonStyles();
+        }
+
+        /// <summary>
+        /// 处理脚本引用设置按钮活动状态变更
+        /// </summary>
+        partial void OnIsScriptReferenceSettingsActiveChanged(bool value)
         {
             UpdateNavigationButtonStyles();
         }
@@ -420,6 +464,7 @@ namespace TaskAssistant.ViewModels
             IsHomeActive = false;
             IsTasksManageActive = false;
             IsScriptManageActive = false;
+            IsScriptReferenceSettingsActive = false;
             
             // 根据页面键设置对应按钮为活动状态
             switch (pageKey)
@@ -431,8 +476,11 @@ namespace TaskAssistant.ViewModels
                     IsTasksManageActive = true;
                     break;
                 case "ScriptManageButton":
-                case "ScriptManageViewButton": // 脚本编辑页面也属于脚本管理
+                case "ScriptManageViewButton": // 脚本编辑页面属于脚本管理
                     IsScriptManageActive = true;
+                    break;
+                case "ScriptReferenceSettings": // 脚本引用设置独立显示
+                    IsScriptReferenceSettingsActive = true;
                     break;
             }
         }

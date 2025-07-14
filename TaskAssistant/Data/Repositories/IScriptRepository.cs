@@ -1,116 +1,116 @@
-using TaskAssistant.Models;
+О╩©using TaskAssistant.Models;
 
 namespace TaskAssistant.Data.Repositories
 {
     /// <summary>
-    /// ?╔╩??╠╣╓f
-    /// ╘w??╔╩╛ш?╙╨╞S╝М╬ч╖@
+    /// Х└ Ф°╛Д╩⌠Е╨⌠Ф▌╔Е▐ё
+    /// Е╝ Д╧┴Х└ Ф°╛Г⌡╦Е┘ЁГ └Г┴╧Ф╝┼Ф⌠█Д╫°
     /// </summary>
     public interface IScriptRepository : IRepository<ScriptInfo>
     {
-        #region ?╔╩╞S╝М╛d?
+        #region Х└ Ф°╛Г┴╧Ф╝┼Ф÷╔Х╞╒
 
         /// <summary>
-        /// ╝зуu╕W??╗З?╔╩
+        /// Ф═╧Ф█╝Е░█Г╖╟Х▌╥Е▐√Х└ Ф°╛
         /// </summary>
-        /// <param name="name">?╔╩╕W?</param>
-        /// <returns>?╔╩╚H╝╖║A╕p╙G╓ё╕s╕b?╙П╕^null</returns>
+        /// <param name="name">Х└ Ф°╛Е░█Г╖╟</param>
+        /// <returns>Х└ Ф°╛Д©║Ф│╞О╪▄Е╕┌Ф·°Д╦█Е╜≤Е°╗Х©■Е⌡·null</returns>
         Task<ScriptInfo?> GetByNameAsync(string name);
 
         /// <summary>
-        /// ?╛d?╔╩╕W?╛O╖_╓w╕s╕b
+        /// Ф÷╔Х╞╒Х└ Ф°╛Е░█Г╖╟Ф≤╞Е░╕Е╥╡Е╜≤Е°╗
         /// </summary>
-        /// <param name="name">?╔╩╕W?</param>
-        /// <param name="excludeId">╠ф╟ё╙╨?╔╩ID║]╔н╓_╖С╥s??╛d║^</param>
-        /// <returns>╕p╙G╕W?╓w╕s╕b?╙П╕^true║A╖_?╙П╕^false</returns>
+        /// <param name="name">Х└ Ф°╛Е░█Г╖╟</param>
+        /// <param name="excludeId">Ф▌▓И≥╓Г └Х└ Ф°╛IDО╪┬Г■╗Д╨▌Ф⌡╢Ф√╟Ф≈╤Ф÷╔Х╞╒О╪┴</param>
+        /// <returns>Е╕┌Ф·°Е░█Г╖╟Е╥╡Е╜≤Е°╗Х©■Е⌡·trueО╪▄Е░╕Е┬≥Х©■Е⌡·false</returns>
         Task<bool> IsNameExistsAsync(string name, int? excludeId = null);
 
         /// <summary>
-        /// ╝зуu╓ю??╗З?╔╩║]?╤q?║A╓ё╔]╖tCode╕r╛q║^
+        /// Ф═╧Ф█╝Е┬├Г╠╩Х▌╥Е▐√Х└ Ф°╛О╪┬Г╝─Е▄√Г┴┬О╪▄Д╦█Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="category">?╔╩╓ю?</param>
-        /// <returns>╚Э╘w╓ю?╙╨?╔╩╤╟╕X</returns>
+        /// <param name="category">Х└ Ф°╛Е┬├Г╠╩</param>
+        /// <returns>Ф▄┤Е╝ Е┬├Г╠╩Г └Х└ Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> GetByCategoryAsync(string category);
 
         /// <summary>
-        /// ╝зуu╓ю??╗З?╔╩║]╖╧╬Ц╙╘╔╩║A╔]╖tCode╕r╛q║^
+        /// Ф═╧Ф█╝Е┬├Г╠╩Х▌╥Е▐√Х└ Ф°╛О╪┬Е╝▄Ф∙╢Г┴┬Ф°╛О╪▄Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="category">?╔╩╓ю?</param>
-        /// <returns>╚Э╘w╓ю?╙╨╖╧╬Ц?╔╩╤╟╕X</returns>
+        /// <param name="category">Х└ Ф°╛Е┬├Г╠╩</param>
+        /// <returns>Ф▄┤Е╝ Е┬├Г╠╩Г └Е╝▄Ф∙╢Х└ Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> GetByCategoryWithCodeAsync(string category);
 
         /// <summary>
-        /// ?╗З╘р╕Ё╓ю?
+        /// Х▌╥Е▐√Ф┴─Ф°┴Е┬├Г╠╩
         /// </summary>
-        /// <returns>╘р╕Ё╓ю?╕W?╙╨╤╟╕X</returns>
+        /// <returns>Ф┴─Ф°┴Е┬├?Е░█?Г └И⌡├Е░┬</returns>
         Task<IEnumerable<string>> GetAllCategoriesAsync();
 
         /// <summary>
-        /// ╥j╞а?╔╩║]?╤q?║A╓ё╔]╖tCode╕r╛q║^
+        /// Ф░°Г╢╒?Ф°╛О╪┬?И┤▐?О╪▄Д╦█Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="keyword">╥j╞а??╕r</param>
-        /// <param name="category">╓ю???║]╔i?║^</param>
-        /// <param name="isEnabled">╛O╖_?╔н??║]╔i?║^</param>
-        /// <returns>╓г╟t╙╨?╔╩╤╟╕X</returns>
+        /// <param name="keyword">Ф░°Г╢╒??Е╜≈</param>
+        /// <param name="category">Е┬├???О╪┬Е▐╞?О╪┴</param>
+        /// <param name="isEnabled">Ф≤╞Е░╕?Г■╗??О╪┬Е▐╞?О╪┴</param>
+        /// <returns>Е▄╧И┘█Г └?Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> SearchAsync(string keyword, string? category = null, bool? isEnabled = null);
 
         /// <summary>
-        /// ╥j╞а?╔╩║]╖╧╬Ц╙╘╔╩║A╔]╖tCode╕r╛q║^
+        /// Ф░°Г╢╒?Ф°╛О╪┬Е╝▄Ф∙╢Г┴┬Ф°╛О╪▄Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="keyword">╥j╞а??╕r</param>
-        /// <param name="category">╓ю???║]╔i?║^</param>
-        /// <param name="isEnabled">╛O╖_?╔н??║]╔i?║^</param>
-        /// <returns>╓г╟t╙╨╖╧╬Ц?╔╩╤╟╕X</returns>
+        /// <param name="keyword">Ф░°Г╢╒??Е╜≈</param>
+        /// <param name="category">Е┬├???О╪┬Е▐╞?О╪┴</param>
+        /// <param name="isEnabled">Ф≤╞Е░╕?Г■╗??О╪┬Е▐╞?О╪┴</param>
+        /// <returns>Е▄╧И┘█Г └Е╝▄Ф∙╢?Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> SearchWithCodeAsync(string keyword, string? category = null, bool? isEnabled = null);
 
         /// <summary>
-        /// ?╗ЗЁл╙Я╗о╔н╙╨?╔╩║]?╤q?║A╓ё╔]╖tCode╕r╛q║^
+        /// ?Е▐√Ф°─Х©▒Д╫©Г■╗Г └?Ф°╛О╪┬?И┤▐?О╪▄Д╦█Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="count">?╗З?╤q</param>
-        /// <returns>Ёл╙Я╗о╔н╙╨?╔╩╤╟╕X</returns>
+        /// <param name="count">?Е▐√?И┤▐</param>
+        /// <returns>Ф°─Х©▒Д╫©Г■╗Г └?Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> GetRecentlyUsedAsync(int count = 10);
 
         /// <summary>
-        /// ?╗ЗЁл╠`╔н╙╨?╔╩║]?╤q?║A╓ё╔]╖tCode╕r╛q║^
+        /// ?Е▐√Ф°─Е╦╦Г■╗Г └?Ф°╛О╪┬?И┤▐?О╪▄Д╦█Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="count">?╗З?╤q</param>
-        /// <returns>Ёл╠`╔н╙╨?╔╩╤╟╕X</returns>
+        /// <param name="count">?Е▐√?И┤▐</param>
+        /// <returns>Ф°─Е╦╦Г■╗Г └?Ф°╛И⌡├Е░┬</returns>
         Task<IEnumerable<ScriptInfo>> GetMostUsedAsync(int count = 10);
 
         /// <summary>
-        /// ?╗З?╔╩╕C╙М║]?╤q?║A╓ё╔]╖tCode╕r╛q║^
+        /// ?Е▐√?Ф°╛Е┬≈Х║╗О╪┬?И┤▐?О╪▄Д╦█Е▄┘Е░╚CodeЕ╜≈Ф╝╣О╪┴
         /// </summary>
-        /// <param name="category">╓ю???║]╔i?║^</param>
-        /// <param name="isEnabled">╛O╖_?╔н??║]╔i?║^</param>
-        /// <param name="pageIndex">?╜╠╞а╓ч║]?0?╘l║^</param>
-        /// <param name="pageSize">?╜╠╓j╓p</param>
-        /// <returns>?╔╩╕C╙М</returns>
+        /// <param name="category">Е┬├???О╪┬Е▐╞?О╪┴</param>
+        /// <param name="isEnabled">Ф≤╞Е░╕?Г■╗??О╪┬Е▐╞?О╪┴</param>
+        /// <param name="pageIndex">?И²╒Г╢╒Е╪∙О╪┬?0?Е╖▀О╪┴</param>
+        /// <param name="pageSize">?И²╒Е╓╖Е╟▐</param>
+        /// <returns>?Ф°╛Е┬≈Х║╗</returns>
         Task<IEnumerable<ScriptInfo>> GetScriptListAsync(string? category = null, bool? isEnabled = null, int? pageIndex = null, int? pageSize = null);
 
         #endregion
 
-        #region ?╔╩??╖С╥s
+        #region ?Ф°╛??Ф⌡╢Ф√╟
 
         /// <summary>
-        /// ╖С╥s?╔╩?╕Ф??
+        /// Ф⌡╢Ф√╟?Ф°╛?Х║▄??
         /// </summary>
-        /// <param name="scriptId">?╔╩ID</param>
-        /// <returns>╖С╥s╕Z╙╨?╔╩╚H╝╖</returns>
+        /// <param name="scriptId">?Ф°╛ID</param>
+        /// <returns>Ф⌡╢Ф√╟Е░▌Г └?Ф°╛Д©║Ф│╞</returns>
         Task<ScriptInfo?> UpdateExecutionStatsAsync(int scriptId);
 
         /// <summary>
-        /// ╖Е╤q?╔н/╦T╔н?╔╩
+        /// Ф┴╧И┤▐?Г■╗/Г╕│Г■╗?Ф°╛
         /// </summary>
-        /// <param name="scriptIds">?╔╩ID╤╟╕X</param>
-        /// <param name="isEnabled">╛O╖_?╔н</param>
-        /// <returns>╗Э╪v?╙╨╕Ф?</returns>
+        /// <param name="scriptIds">?Ф°╛IDИ⌡├Е░┬</param>
+        /// <param name="isEnabled">Ф≤╞Е░╕?Г■╗</param>
+        /// <returns>Е▐≈Е╫╠?Г └Х║▄?</returns>
         Task<int> BulkUpdateEnabledStatusAsync(IEnumerable<int> scriptIds, bool isEnabled);
 
         /// <summary>
-        /// ╡M╡z╔╪╗о╔н╙╨?╔╩
+        /// Ф╦┘Г░├Ф°╙Д╫©Г■╗Г └?Ф°╛
         /// </summary>
-        /// <param name="daysUnused">╔╪╗о╔н╓я?</param>
-        /// <returns>ЁQ╡M╡z╙╨?╔╩?╤q</returns>
+        /// <param name="daysUnused">Ф°╙Д╫©Г■╗Е╓╘?</param>
+        /// <returns>Х╒╚Ф╦┘Г░├Г └?Ф°╛?И┤▐</returns>
         Task<int> CleanupUnusedScriptsAsync(int daysUnused = 90);
 
         #endregion

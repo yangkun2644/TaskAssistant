@@ -5,6 +5,7 @@ using System.IO;
 using TaskAssistant.Data.Repositories;
 using TaskAssistant.Data.Services;
 using TaskAssistant.Models;
+using TaskAssistant.Services;
 
 namespace TaskAssistant.Data
 {
@@ -46,6 +47,9 @@ namespace TaskAssistant.Data
             // 注册数据服务
             services.AddScoped<IDataService, DataService>();
 
+            // 注册脚本执行服务
+            services.AddScoped<IScriptExecutionService, ScriptExecutionService>();
+
             return services;
         }
 
@@ -73,6 +77,9 @@ namespace TaskAssistant.Data
 
             // 注册数据服务
             services.AddScoped<IDataService, DataService>();
+
+            // 注册脚本执行服务
+            services.AddScoped<IScriptExecutionService, ScriptExecutionService>();
 
             return services;
         }

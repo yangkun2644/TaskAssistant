@@ -170,9 +170,9 @@ namespace TaskAssistant
                 
                 // 初始化数据库
                 await InitializeDatabaseAsync();
-                
-                // 初始化资源管理器
-                ResourceManager.Initialize();
+
+                // 初始化智能引用管理器
+                await InitializeSmartReferenceManagerAsync();
                 
                 // 设置全局服务提供者
                 Services = _serviceProvider;
@@ -189,6 +189,26 @@ namespace TaskAssistant
             {
                 // 将其他异常包装成 InvalidOperationException
                 throw new InvalidOperationException($"应用程序初始化失败：{ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// 初始化智能引用管理器
+        /// </summary>
+        private async Task InitializeSmartReferenceManagerAsync()
+        {
+            try
+            {
+                var settingsService = _serviceProvider?.GetService<TaskAssistant.Services.IAppSettingsService>();
+                if (settingsService != null)
+                {
+                    await TaskAssistant.Services.SmartReferenceManager.Instance.InitializeAsync(settingsService);
+                }
+            }
+            catch (Exception ex)
+            {
+                // 智能引用管理器初始化失败不应该阻止应用程序启动
+                System.Diagnostics.Debug.WriteLine($"智能引用管理器初始化失败: {ex.Message}");
             }
         }
 
@@ -262,6 +282,9 @@ namespace TaskAssistant
                 // 添加数据访问服务
                 services.AddDataServices();
 
+                // 添加应用程序设置服务
+                services.AddTransient<IAppSettingsService, AppSettingsService>();
+
                 // 注意：不注册 NavigationService 作为全局服务
                 // NavigationService 在 MainWindowViewModel 中创建，因为它需要特定的委托参数
 
@@ -273,6 +296,7 @@ namespace TaskAssistant
                 // 不注册需要 NavigationService 的 ViewModels，它们由 MainWindowViewModel 在页面工厂中创建：
                 // - ScriptManageViewModel (需要 INavigationService)
                 // - ScriptManageListViewModel (需要 INavigationService)
+                // - ScriptReferenceSettingsViewModel (需要 INavigationService)
 
                 // 添加 Views (Windows)
                 services.AddTransient<MainWindow>();

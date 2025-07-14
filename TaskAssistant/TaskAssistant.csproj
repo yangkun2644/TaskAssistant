@@ -6,6 +6,23 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Copyright>Copyright © 2024 TaskAssistant</Copyright>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>CA1416</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DebugType>portable</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,12 +44,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- 编辑器相关 -->
     <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
+    
+    <!-- MVVM 框架 -->
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    
+    <!-- 代码编译和脚本 -->
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.14.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Scripting.Common" Version="4.14.0" />
     
-    <!-- Entity Framework Core 相关包 -->
+    <!-- C# 动态绑定支持 -->
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    
+    <!-- Entity Framework Core（保持与原版本兼容） -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
@@ -40,10 +65,26 @@
     <!-- 依赖注入 -->
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3351.48" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.7" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.7" />
     
     <!-- JSON 处理 -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="9.0.7" />
+    
+    <!-- NuGet 包管理 -->
+    <PackageReference Include="NuGet.Common" Version="6.11.1" />
+    <PackageReference Include="NuGet.Configuration" Version="6.11.1" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.11.1" />
+    <PackageReference Include="NuGet.PackageManagement" Version="6.11.1" />
+    <PackageReference Include="NuGet.Protocol" Version="6.11.1" />
+    <PackageReference Include="NuGet.Resolver" Version="6.11.1" />
+    <PackageReference Include="NuGet.Versioning" Version="6.11.1" />
+    
+    <!-- 性能分析 -->
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="9.0.7" />
   </ItemGroup>
+
+  <!-- 系统引用 -->
 
 </Project>

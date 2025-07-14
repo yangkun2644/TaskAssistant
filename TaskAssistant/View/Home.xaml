@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:TaskAssistant.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -161,7 +160,7 @@
                             </StackPanel>
                         </StackPanel>
 
-                        <!--  内存使用  -->
+                        <!--  专用工作集内存（任务管理器"专用内存集"）  -->
                         <StackPanel
                             Grid.Column="1"
                             HorizontalAlignment="Center"
@@ -178,12 +177,12 @@
                                     FontSize="14"
                                     FontWeight="SemiBold"
                                     Style="{StaticResource textLabel}"
-                                    Text="{Binding MemoryUsageText}" />
+                                    Text="{Binding PrivateWorkingSetText}" />
                                 <TextBlock
                                     FontSize="10"
                                     Opacity="0.7"
                                     Style="{StaticResource textLabel}"
-                                    Text="内存" />
+                                    Text="专用内存集" />
                             </StackPanel>
                         </StackPanel>
 
@@ -217,98 +216,159 @@
                 </Grid>
             </Border>
         </Grid>
-        <!--  内嵌浏览器区域  -->
+
+        <!--  详细内存监控面板  -->
         <Border
-            Height="450"
-            Margin="20,20,20,20"
+            Height="160"
+            Margin="20,0,20,20"
             VerticalAlignment="Top"
             Style="{StaticResource cardBorder}">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="#9D85FA" />
-                    <GradientStop Offset="1" Color="#C77AFF" />
+                    <GradientStop Offset="0" Color="#4A90E2" />
+                    <GradientStop Offset="1" Color="#50E3C2" />
                 </LinearGradientBrush>
             </Border.Background>
-
             <Grid>
-                <!--  浏览器标题栏  -->
-                <Grid
-                    Height="35"
-                    Margin="15,10,15,0"
-                    VerticalAlignment="Top">
+                <!--  标题和操作按钮  -->
+                <Grid Margin="15,10,15,0" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <!--  标题  -->
-                    <!--
-                    <TextBlock
-                        Grid.Column="0"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        FontWeight="SemiBold"
-                        Style="{StaticResource textLabel}"
-                        Text="GitHub" />-->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource textLabel}"
+                            Text="内存监控" />
+                    </StackPanel>
 
-                    <!--  地址栏  -->
-                    <!--
-                    <Border
-                        Grid.Column="1"
-                        Height="50"
-                        VerticalAlignment="Center"
-                        CornerRadius="14">
-                        <TextBox
-                            x:Name="AddressBar"
-                            Margin="10,0"
-                            VerticalAlignment="Center"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            FontSize="12"
-                            Foreground="White"
-                            Text="{Binding WebUrl, UpdateSourceTrigger=PropertyChanged}">
-                            <TextBox.InputBindings>
-                                <KeyBinding Key="Return" Command="{Binding NavigateCommand}" />
-                            </TextBox.InputBindings>
-                        </TextBox>
-                    </Border>-->
-
-                    <!--  导航按钮  -->
-                    <!--<StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
                         <Button
                             Margin="0,0,5,0"
-                            Command="{Binding RefreshCommand}"
+                            Command="{Binding ManualMemoryCleanupCommand}"
                             Style="{StaticResource fillButton}"
-                            ToolTip="刷新">
-                            <TextBlock
-                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
-                                FontSize="14"
-                                Foreground="White"
-                                Text="&#xe5d5;" />
+                            ToolTip="立即清理内存">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                    FontSize="14"
+                                    Foreground="White"
+                                    Text="&#xe8b8;" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    FontSize="12"
+                                    Style="{StaticResource textLabel}"
+                                    Text="清理" />
+                            </StackPanel>
                         </Button>
-                    -->
-                    <!--<Button
-                            Command="{Binding NavigateCommand}"
+                        <Button
+                            Command="{Binding ResetPeakMemoryCommand}"
                             Style="{StaticResource fillButton}"
-                            ToolTip="转到">
-                            <TextBlock
-                                FontFamily="/Assets/Fonts/#Material Symbols Rounded"
-                                FontSize="14"
-                                Foreground="White"
-                                Text="&#xe5cc;" />
-                        </Button>-->
-                    <!--
-                    </StackPanel>-->
+                            ToolTip="重置峰值记录">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    FontFamily="/Assets/Fonts/#Material Symbols Rounded"
+                                    FontSize="14"
+                                    Foreground="White"
+                                    Text="&#xe863;" />
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    FontSize="12"
+                                    Style="{StaticResource textLabel}"
+                                    Text="重置" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </Grid>
 
-                <!--  WebView2 浏览器控件  -->
-                <Border
-                    Margin="15,15,15,15"
-                    Background="White"
-                    CornerRadius="10">
-                    <wv2:WebView2 x:Name="WebView" Source="{Binding WebUrl}" />
-                </Border>
+                <!--  详细内存信息  -->
+                <Grid Margin="15,55,15,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  托管内存  -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock
+                            FontSize="12"
+                            FontWeight="Bold"
+                            Style="{StaticResource textLabel}"
+                            Text="托管内存" />
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource textLabel}"
+                            Text="{Binding ManagedMemoryText}" />
+                        <TextBlock
+                            FontSize="10"
+                            Opacity="0.8"
+                            Style="{StaticResource textLabel}"
+                            Text="可回收" />
+                    </StackPanel>
+
+                    <!--  工作集内存  -->
+                    <StackPanel Grid.Column="1">
+                        <TextBlock
+                            FontSize="12"
+                            FontWeight="Bold"
+                            Style="{StaticResource textLabel}"
+                            Text="工作集内存" />
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource textLabel}"
+                            Text="{Binding WorkingSetText}" />
+                        <TextBlock
+                            FontSize="10"
+                            Opacity="0.8"
+                            Style="{StaticResource textLabel}"
+                            Text="系统分配" />
+                    </StackPanel>
+
+                    <!--  内存峰值  -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                            FontSize="12"
+                            FontWeight="Bold"
+                            Style="{StaticResource textLabel}"
+                            Text="历史峰值" />
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource textLabel}"
+                            Text="{Binding PeakMemoryMB, StringFormat='{}{0:F1} MB'}" />
+                        <TextBlock
+                            FontSize="10"
+                            Opacity="0.8"
+                            Style="{StaticResource textLabel}"
+                            Text="最大值" />
+                    </StackPanel>
+
+                    <!--  更新时间  -->
+                    <StackPanel Grid.Column="3">
+                        <TextBlock
+                            FontSize="12"
+                            FontWeight="Bold"
+                            Style="{StaticResource textLabel}"
+                            Text="更新时间" />
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource textLabel}"
+                            Text="{Binding LastUpdated}" />
+                        <TextBlock
+                            FontSize="10"
+                            Opacity="0.8"
+                            Style="{StaticResource textLabel}"
+                            Text="最后刷新" />
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Border>
     </StackPanel>

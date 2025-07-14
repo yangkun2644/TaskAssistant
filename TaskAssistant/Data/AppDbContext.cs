@@ -1,66 +1,82 @@
-using Microsoft.EntityFrameworkCore;
+ï»¿using Microsoft.EntityFrameworkCore;
 using TaskAssistant.Models;
 
 namespace TaskAssistant.Data
 {
     /// <summary>
-    /// ?¥Îµ{§Ç?Õu?¤W¤U¤å
-    /// ??ºŞ²z©Ò¦³?Õu??Ê^©M?Õu??±µ
+    /// åº”ç”¨ç¨‹åºæ•°æ®åº“ä¸Šä¸‹æ–‡
+    /// è´Ÿè´£ç®¡ç†æ‰€æœ‰æ•°æ®åº“å®ä½“å’Œæ•°æ®åº“è¿æ¥
     /// </summary>
     public class AppDbContext : DbContext
     {
-        #region ÌÛ³y¨ç?
+        #region æ„é€ å‡½æ•°
 
         /// <summary>
-        /// ªì©l¤Æ?Õu?¤W¤U¤å
+        /// åˆå§‹åŒ–æ•°æ®åº“ä¸Šä¸‹æ–‡
         /// </summary>
-        /// <param name="options">?Õu?¤W¤U¤å??</param>
+        /// <param name="options">æ•°æ®åº“ä¸Šä¸‹æ–‡é€‰é¡¹</param>
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
         #endregion
 
-        #region DbSet ?©Ê
+        #region DbSet å±æ€§
 
         /// <summary>
-        /// ?¥»«H®§?Õu¶°
+        /// è„šæœ¬ä¿¡æ¯æ•°æ®é›†
         /// </summary>
         public DbSet<ScriptInfo> Scripts { get; set; }
 
         /// <summary>
-        /// ¥ô?«H®§?Õu¶°
+        /// ä»»åŠ¡ä¿¡æ¯æ•°æ®é›†
         /// </summary>
         public DbSet<TaskInfo> Tasks { get; set; }
 
-        #endregion
-
-        #region ¼Ò«¬°t¸m
+        /// <summary>
+        /// è„šæœ¬æ‰§è¡Œæ—¥å¿—æ•°æ®é›†
+        /// </summary>
+        public DbSet<ScriptExecutionLog> ScriptExecutionLogs { get; set; }
 
         /// <summary>
-        /// °t¸m?Õu?¼Ò«¬
+        /// åº”ç”¨ç¨‹åºè®¾ç½®æ•°æ®é›†
         /// </summary>
-        /// <param name="modelBuilder">¼Ò«¬ÌÛ«Ø¾¹</param>
+        public DbSet<AppSettings> AppSettings { get; set; }
+
+        #endregion
+
+        #region æ¨¡å‹é…ç½®
+
+        /// <summary>
+        /// é…ç½®æ•°æ®åº“æ¨¡å‹
+        /// </summary>
+        /// <param name="modelBuilder">æ¨¡å‹æ„å»ºå™¨</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // °t¸m?¥»«H®§?Ê^
+            // é…ç½®è„šæœ¬ä¿¡æ¯å®ä½“
             ConfigureScriptInfo(modelBuilder);
 
-            // °t¸m¥ô?«H®§?Ê^
+            // é…ç½®ä»»åŠ¡ä¿¡æ¯å®ä½“
             ConfigureTaskInfo(modelBuilder);
+
+            // é…ç½®è„šæœ¬æ‰§è¡Œæ—¥å¿—å®ä½“
+            ConfigureScriptExecutionLog(modelBuilder);
+
+            // é…ç½®åº”ç”¨ç¨‹åºè®¾ç½®å®ä½“
+            ConfigureAppSettings(modelBuilder);
         }
 
         /// <summary>
-        /// °t¸m?¥»«H®§?Ê^
+        /// é…ç½®è„šæœ¬ä¿¡æ¯å®ä½“
         /// </summary>
-        /// <param name="modelBuilder">¼Ò«¬ÌÛ«Ø¾¹</param>
+        /// <param name="modelBuilder">æ¨¡å‹æ„å»ºå™¨</param>
         private static void ConfigureScriptInfo(ModelBuilder modelBuilder)
         {
             var scriptEntity = modelBuilder.Entity<ScriptInfo>();
 
-            // °t¸m¯Á¤Ş
+            // é…ç½®ç´¢å¼•
             scriptEntity.HasIndex(s => s.Name)
                         .IsUnique()
                         .HasDatabaseName("IX_Scripts_Name");
@@ -74,7 +90,7 @@ namespace TaskAssistant.Data
             scriptEntity.HasIndex(s => s.IsEnabled)
                         .HasDatabaseName("IX_Scripts_IsEnabled");
 
-            // °t¸mÀq?­È
+            // é…ç½®é»˜è®¤å€¼
             scriptEntity.Property(s => s.CreatedAt)
                         .HasDefaultValueSql("datetime('now')");
 
@@ -88,7 +104,7 @@ namespace TaskAssistant.Data
                         .HasDefaultValue(0);
 
             scriptEntity.Property(s => s.Category)
-                        .HasDefaultValue("Àq?");
+                        .HasDefaultValue("é»˜è®¤");
 
             scriptEntity.Property(s => s.Tags)
                         .HasDefaultValue("[]");
@@ -98,20 +114,20 @@ namespace TaskAssistant.Data
         }
 
         /// <summary>
-        /// °t¸m¥ô?«H®§?Ê^
+        /// é…ç½®ä»»åŠ¡ä¿¡æ¯å®ä½“
         /// </summary>
-        /// <param name="modelBuilder">¼Ò«¬ÌÛ«Ø¾¹</param>
+        /// <param name="modelBuilder">æ¨¡å‹æ„å»ºå™¨</param>
         private static void ConfigureTaskInfo(ModelBuilder modelBuilder)
         {
             var taskEntity = modelBuilder.Entity<TaskInfo>();
 
-            // °t¸m¥~??¨t
+            // é…ç½®å¤–é”®å…³ç³»
             taskEntity.HasOne(t => t.Script)
                       .WithMany()
                       .HasForeignKey(t => t.ScriptId)
                       .OnDelete(DeleteBehavior.SetNull);
 
-            // °t¸m¯Á¤Ş
+            // é…ç½®ç´¢å¼•
             taskEntity.HasIndex(t => t.Name)
                       .HasDatabaseName("IX_Tasks_Name");
 
@@ -133,7 +149,7 @@ namespace TaskAssistant.Data
             taskEntity.HasIndex(t => t.IsEnabled)
                       .HasDatabaseName("IX_Tasks_IsEnabled");
 
-            // °t¸mÀq?­È
+            // é…ç½®é»˜è®¤å€¼
             taskEntity.Property(t => t.CreatedAt)
                       .HasDefaultValueSql("datetime('now')");
 
@@ -141,7 +157,7 @@ namespace TaskAssistant.Data
                       .HasDefaultValueSql("datetime('now')");
 
             taskEntity.Property(t => t.Status)
-                      .HasDefaultValue("«İ?¦æ");
+                      .HasDefaultValue("å¾…æ‰§è¡Œ");
 
             taskEntity.Property(t => t.Priority)
                       .HasDefaultValue(5);
@@ -162,15 +178,104 @@ namespace TaskAssistant.Data
                       .HasDefaultValue(0);
         }
 
-        #endregion
+        /// <summary>
+        /// é…ç½®è„šæœ¬æ‰§è¡Œæ—¥å¿—å®ä½“
+        /// </summary>
+        /// <param name="modelBuilder">æ¨¡å‹æ„å»ºå™¨</param>
+        private static void ConfigureScriptExecutionLog(ModelBuilder modelBuilder)
+        {
+            var logEntity = modelBuilder.Entity<ScriptExecutionLog>();
 
-        #region ?Õu?¥Í©R©P´Á
+            // é…ç½®å¤–é”®å…³ç³»
+            logEntity.HasOne(l => l.Script)
+                     .WithMany()
+                     .HasForeignKey(l => l.ScriptId)
+                     .OnDelete(DeleteBehavior.SetNull);
+
+            logEntity.HasOne(l => l.Task)
+                     .WithMany()
+                     .HasForeignKey(l => l.TaskId)
+                     .OnDelete(DeleteBehavior.SetNull);
+
+            // é…ç½®ç´¢å¼•
+            logEntity.HasIndex(l => l.ScriptId)
+                     .HasDatabaseName("IX_ScriptExecutionLogs_ScriptId");
+
+            logEntity.HasIndex(l => l.TaskId)
+                     .HasDatabaseName("IX_ScriptExecutionLogs_TaskId");
+
+            logEntity.HasIndex(l => l.Status)
+                     .HasDatabaseName("IX_ScriptExecutionLogs_Status");
+
+            logEntity.HasIndex(l => l.StartTime)
+                     .HasDatabaseName("IX_ScriptExecutionLogs_StartTime");
+
+            logEntity.HasIndex(l => l.EndTime)
+                     .HasDatabaseName("IX_ScriptExecutionLogs_EndTime");
+
+            // é…ç½®é»˜è®¤å€¼
+            logEntity.Property(l => l.StartTime)
+                     .HasDefaultValueSql("datetime('now')");
+
+            logEntity.Property(l => l.Status)
+                     .HasDefaultValue("Running");
+
+            logEntity.Property(l => l.Duration)
+                     .HasDefaultValue(0);
+
+            logEntity.Property(l => l.Output)
+                     .HasDefaultValue("");
+
+            logEntity.Property(l => l.ErrorOutput)
+                     .HasDefaultValue("");
+
+            logEntity.Property(l => l.NuGetPackages)
+                     .HasDefaultValue("[]");
+
+            logEntity.Property(l => l.MachineName)
+                     .HasDefaultValue(Environment.MachineName);
+
+            logEntity.Property(l => l.UserName)
+                     .HasDefaultValue(Environment.UserName);
+        }
 
         /// <summary>
-        /// «O¦s§ó§ï«eªº?²z
-        /// ¦Û?§ó·s??ÂWµ¥
+        /// é…ç½®åº”ç”¨ç¨‹åºè®¾ç½®å®ä½“
         /// </summary>
-        /// <returns>¨ü¼v?ªº¦æ?</returns>
+        /// <param name="modelBuilder">æ¨¡å‹æ„å»ºå™¨</param>
+        private static void ConfigureAppSettings(ModelBuilder modelBuilder)
+        {
+            var settingsEntity = modelBuilder.Entity<AppSettings>();
+
+            // é…ç½®å”¯ä¸€ç´¢å¼•
+            settingsEntity.HasIndex(s => s.Key)
+                          .IsUnique()
+                          .HasDatabaseName("IX_AppSettings_Key");
+
+            // é…ç½®å…¶ä»–ç´¢å¼•
+            settingsEntity.HasIndex(s => s.CreatedAt)
+                          .HasDatabaseName("IX_AppSettings_CreatedAt");
+
+            settingsEntity.HasIndex(s => s.LastModified)
+                          .HasDatabaseName("IX_AppSettings_LastModified");
+
+            // é…ç½®é»˜è®¤å€¼
+            settingsEntity.Property(s => s.CreatedAt)
+                          .HasDefaultValueSql("datetime('now')");
+
+            settingsEntity.Property(s => s.LastModified)
+                          .HasDefaultValueSql("datetime('now')");
+        }
+
+        #endregion
+
+        #region æ•°æ®åº“ç”Ÿå‘½å‘¨æœŸ
+
+        /// <summary>
+        /// ä¿å­˜æ›´æ”¹å‰çš„å¤„ç†
+        /// è‡ªåŠ¨æ›´æ–°æ—¶é—´æˆ³ç­‰
+        /// </summary>
+        /// <returns>å—å½±å“çš„è¡Œæ•°</returns>
         public override int SaveChanges()
         {
             UpdateTimestamps();
@@ -178,10 +283,10 @@ namespace TaskAssistant.Data
         }
 
         /// <summary>
-        /// Éİ¨B«O¦s§ó§ï«eªº?²z
+        /// å¼‚æ­¥ä¿å­˜æ›´æ”¹å‰çš„å¤„ç†
         /// </summary>
-        /// <param name="cancellationToken">¨ú®ø¥OµP</param>
-        /// <returns>¨ü¼v?ªº¦æ?</returns>
+        /// <param name="cancellationToken">å–æ¶ˆä»¤ç‰Œ</param>
+        /// <returns>å—å½±å“çš„è¡Œæ•°</returns>
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             UpdateTimestamps();
@@ -189,7 +294,7 @@ namespace TaskAssistant.Data
         }
 
         /// <summary>
-        /// §ó·s??ÂW
+        /// æ›´æ–°æ—¶é—´æˆ³
         /// </summary>
         private void UpdateTimestamps()
         {
@@ -214,6 +319,15 @@ namespace TaskAssistant.Data
                         taskInfo.CreatedAt = DateTime.Now;
                     }
                     taskInfo.LastModified = DateTime.Now;
+                }
+
+                if (entry.Entity is AppSettings appSettings)
+                {
+                    if (entry.State == EntityState.Added)
+                    {
+                        appSettings.CreatedAt = DateTime.Now;
+                    }
+                    appSettings.LastModified = DateTime.Now;
                 }
             }
         }

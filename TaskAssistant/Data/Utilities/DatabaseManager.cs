@@ -1,18 +1,18 @@
-using TaskAssistant.Data.Repositories;
+ï»¿using TaskAssistant.Data.Repositories;
 using TaskAssistant.Data.Services;
 
 namespace TaskAssistant.Data.Utilities
 {
     /// <summary>
-    /// ?Õu?ºŞ²z¤u¨ã?
-    /// ´£¨Ñ?Õu???¡B?¥÷¡B?­ìµ¥?¥Î¥\¯à
+    /// æ•°æ®ç®¡ç†å·¥å…·
+    /// æä¾›æ•°æ®ç»Ÿè®¡ã€å¤‡ä»½ã€è¿˜åŸç­‰å®ç”¨åŠŸèƒ½
     /// </summary>
     public static class DatabaseManager
     {
         /// <summary>
-        /// ?¨ú?Õu???«H®§
+        /// è·å–æ•°æ®åº“ç»Ÿè®¡ä¿¡æ¯
         /// </summary>
-        /// <returns>?Õu???«H®§</returns>
+        /// <returns>æ•°æ®åº“ç»Ÿè®¡ä¿¡æ¯</returns>
         public static async Task<DatabaseStatistics> GetStatisticsAsync()
         {
             var dataService = App.GetRequiredService<IDataService>();
@@ -31,33 +31,33 @@ namespace TaskAssistant.Data.Utilities
         }
 
         /// <summary>
-        /// ?¥÷?Õu?
+        /// å¤‡ä»½æ•°æ®åº“
         /// </summary>
-        /// <param name="backupPath">?¥÷¤å¥ó¸ô?</param>
-        /// <returns>¬O§_?¥÷¦¨¥\</returns>
+        /// <param name="backupPath">å¤‡ä»½æ–‡ä»¶è·¯å¾„</param>
+        /// <returns>æ˜¯å¦å¤‡ä»½æˆåŠŸ</returns>
         public static async Task<bool> BackupAsync(string? backupPath = null)
         {
             try
             {
                 var dataService = App.GetRequiredService<IDataService>();
-                
-                // ¦pªG?¦³«ü©w¸ô?¡A¨Ï¥ÎÀq?¸ô?
+
+                // å¦‚æœæ²¡æœ‰æŒ‡å®šè·¯å¾„ï¼Œä½¿ç”¨é»˜è®¤è·¯å¾„
                 backupPath ??= GetDefaultBackupPath();
                 
                 return await dataService.BackupDatabaseAsync(backupPath);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"?Õu??¥÷¥¢?: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"æ•°æ®åº“å¤‡ä»½å¤±è´¥: {ex.Message}");
                 return false;
             }
         }
 
         /// <summary>
-        /// ?­ì?Õu?
+        /// è¿˜åŸæ•°æ®åº“
         /// </summary>
-        /// <param name="backupPath">?¥÷¤å¥ó¸ô?</param>
-        /// <returns>¬O§_?­ì¦¨¥\</returns>
+        /// <param name="backupPath">å¤‡ä»½æ–‡ä»¶è·¯å¾„</param>
+        /// <returns>æ˜¯å¦è¿˜åŸæˆåŠŸ</returns>
         public static async Task<bool> RestoreAsync(string backupPath)
         {
             try
@@ -67,16 +67,16 @@ namespace TaskAssistant.Data.Utilities
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"?Õu??­ì¥¢?: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"æ•°æ®åº“è¿˜åŸå¤±è´¥: {ex.Message}");
                 return false;
             }
         }
 
         /// <summary>
-        /// ²M²z?´Á?Õu
+        /// æ¸…ç†è¿‡æœŸæ•°æ®
         /// </summary>
-        /// <param name="daysToKeep">«O¯d¤Ñ?</param>
-        /// <returns>²M²zªº???¶q</returns>
+        /// <param name="daysToKeep">ä¿ç•™å¤©æ•°</param>
+        /// <returns>æ¸…ç†çš„è®°å½•æ•°é‡</returns>
         public static async Task<int> CleanupAsync(int daysToKeep = 90)
         {
             try
@@ -86,15 +86,15 @@ namespace TaskAssistant.Data.Utilities
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"?Õu?²M²z¥¢?: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"æ•°æ®åº“æ¸…ç†å¤±è´¥: {ex.Message}");
                 return 0;
             }
         }
 
         /// <summary>
-        /// ?¨úÀq??¥÷¸ô?
+        /// è·å–é»˜è®¤å¤‡ä»½è·¯å¾„
         /// </summary>
-        /// <returns>Àq??¥÷¤å¥ó¸ô?</returns>
+        /// <returns>é»˜è®¤å¤‡ä»½æ–‡ä»¶è·¯å¾„</returns>
         private static string GetDefaultBackupPath()
         {
             var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -111,40 +111,40 @@ namespace TaskAssistant.Data.Utilities
     }
 
     /// <summary>
-    /// ?Õu???«H®§
+    /// æ•°æ®ç»Ÿè®¡ä¿¡æ¯
     /// </summary>
     public class DatabaseStatistics
     {
         /// <summary>
-        /// ?¥»??
+        /// è„šæœ¬æ€»æ•°
         /// </summary>
         public int TotalScripts { get; set; }
 
         /// <summary>
-        /// ?¥Îªº?¥»?
+        /// è¿è¡Œçš„è„šæœ¬æ•°
         /// </summary>
         public int EnabledScripts { get; set; }
 
         /// <summary>
-        /// ¸T¥Îªº?¥»?
+        /// ç¦ç”¨çš„è„šæœ¬æ•°
         /// </summary>
         public int DisabledScripts { get; set; }
 
         /// <summary>
-        /// ¥ô???«H®§
+        /// ä»»åŠ¡ç»Ÿè®¡ä¿¡æ¯
         /// </summary>
         public TaskStatistics TaskStatistics { get; set; } = new();
 
         /// <summary>
-        /// ?¨ú??ºK­n
+        /// è·å–æ‘˜è¦
         /// </summary>
-        /// <returns>??ºK­n¤å¥»</returns>
+        /// <returns>æ‘˜è¦æ–‡æœ¬</returns>
         public string GetSummary()
         {
-            return $"?¥»: {TotalScripts} ? (?¥Î: {EnabledScripts}, ¸T¥Î: {DisabledScripts})\n" +
-                   $"¥ô?: {TaskStatistics.TotalTasks} ? («İ?¦æ: {TaskStatistics.PendingTasks}, " +
-                   $"?¦æ¤¤: {TaskStatistics.RunningTasks}, ¤w§¹¦¨: {TaskStatistics.CompletedTasks})\n" +
-                   $"¦¨¥\²v: {TaskStatistics.SuccessRate:F1}%";
+            return $"è„šæœ¬æ€»æ•°: {TotalScripts} (è¿è¡Œ: {EnabledScripts}, ç¦ç”¨: {DisabledScripts})\n" +
+                   $"ä»»åŠ¡æ€»æ•°: {TaskStatistics.TotalTasks} (å¾…æ‰§è¡Œ: {TaskStatistics.PendingTasks}, " +
+                   $"è¿è¡Œä¸­: {TaskStatistics.RunningTasks}, å·²å®Œæˆ: {TaskStatistics.CompletedTasks})\n" +
+                   $"æˆåŠŸç‡: {TaskStatistics.SuccessRate:F1}%";
         }
     }
 }
