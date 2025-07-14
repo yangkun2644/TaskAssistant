@@ -20,14 +20,11 @@ TaskAssistant 是一个功能强大的 C# 脚本管理和执行工具，基于 W
 - **分类和标签管理**：灵活的脚本分类和标签系统
 - **全文搜索**：支持按名称、描述、作者进行快速搜索
 - **版本管理**：脚本版本跟踪和执行统计
+<img width="1375" height="1000" alt="image" src="https://github.com/user-attachments/assets/198bc980-bd73-4fd6-9ce4-b1e06b2efe10" />
+<img width="1375" height="1000" alt="image" src="https://github.com/user-attachments/assets/7c6e7a7b-01b6-4c6c-90ef-2700096feacd" />
+<img width="1500" height="1062" alt="image" src="https://github.com/user-attachments/assets/130f9218-95ea-4247-8aac-4bcf3a593f96" />
 
-<img width="1100" height="800" alt="image" src="https://github.com/user-attachments/assets/cbcc8b0f-9b15-4c41-a1ac-32dcb802bef7" />
 
-<img width="1100" height="800" alt="image" src="https://github.com/user-attachments/assets/99ea21bc-8684-4a49-b2a8-7232be962625" />
-
-<img width="1200" height="850" alt="image" src="https://github.com/user-attachments/assets/bd8d351f-bddf-40a3-b53d-514c6e8c10dc" />
-
-<img width="1110" height="814" alt="image" src="https://github.com/user-attachments/assets/c1259da2-20d0-484a-aec0-fb33b4c95219" />
 
 
 ### 📊 任务调度
@@ -42,6 +39,10 @@ TaskAssistant 是一个功能强大的 C# 脚本管理和执行工具，基于 W
 - **智能建议系统**：根据代码内容自动分析并建议相关引用
 - **排除模式配置**：支持通配符模式的程序集排除设置
 - **批量操作**：支持批量添加、删除和配置引用设置
+<img width="1375" height="1000" alt="image" src="https://github.com/user-attachments/assets/98f6b760-dd2f-4b27-a3f9-1faedef9eb8c" />
+<img width="1375" height="1000" alt="image" src="https://github.com/user-attachments/assets/19d811ed-9a2b-4048-ab9b-e4f595b47211" />
+
+
 
 ### 🎨 用户界面
 - **现代化设计**：采用 Material Design 风格
@@ -49,7 +50,8 @@ TaskAssistant 是一个功能强大的 C# 脚本管理和执行工具，基于 W
 - **主题系统**：可定制的界面主题
 - **独立对话框**：专用的脚本执行、全屏编辑等功能对话框
 - **主题化对话框**：统一的确认、信息和错误提示对话框
-<img width="1100" height="800" alt="image" src="https://github.com/user-attachments/assets/583851eb-c2e0-4ba4-852e-dcf47246b5ad" />
+<img width="1375" height="1000" alt="image" src="https://github.com/user-attachments/assets/a8d25f52-9311-48d8-b296-83f9cf3c43fc" />
+
 
 
 ### 🔧 技术特性
